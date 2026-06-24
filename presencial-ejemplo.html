@@ -310,7 +310,8 @@
        DATOS GENERALES Y DESCRIPCIÓN (NUEVO DISEÑO GRID)
        ===================================================== */
     .course-details {
-      max-width: 1200px;
+      max-width: calc(1200px - 40px);
+      width: calc(100% - 40px);
       margin: 0 auto 100px;
       padding: 10px;
       background: #f2f2f2;
@@ -458,6 +459,10 @@
     }
 
     @media (max-width: 600px) {
+      .course-details {
+        padding: 12px;
+        border-radius: 32px;
+      }
       .stats-grid {
         grid-template-columns: 1fr;
       }
@@ -619,12 +624,13 @@
 
 
     /* =====================================================
-       DOCENTES (Staggered Cards)
+       DOCENTES (Cascada Innovadora)
        ===================================================== */
     .teachers-section {
       max-width: 1200px;
       margin: 0 auto 100px;
       padding: 0 20px;
+      padding-top: 60px; /* Space for the avatars sticking out */
     }
 
     .teachers-section h2 {
@@ -632,42 +638,55 @@
       font-family: "Bricolage Grotesque", sans-serif;
       font-size: clamp(32px, 4vw, 48px);
       font-weight: 300;
-      margin-bottom: 60px;
+      margin-bottom: 80px;
       color: #000;
     }
 
-    .teachers-grid {
+    .teachers-grid-cascada {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 30px;
     }
 
     .teacher-card {
+      position: relative;
       background: #f2f2f2;
       border-radius: 32px;
-      padding: 40px;
+      padding: 50px 30px 40px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
     }
 
-    .teachers-grid .teacher-card:nth-child(2) {
+    /* Cascade effect */
+    .teachers-grid-cascada .teacher-card:nth-child(2) {
       transform: translateY(40px);
+    }
+
+    .teachers-grid-cascada .teacher-card:nth-child(3) {
+      transform: translateY(80px);
     }
 
     .teacher-card:hover {
       box-shadow: 0 12px 30px rgba(0,0,0,0.06);
     }
 
-    .teacher-avatar {
-      width: 100px;
-      height: 100px;
+    .teacher-avatar-corner {
+      position: absolute;
+      top: -45px;
+      right: 30px;
+      width: 90px;
+      height: 90px;
       border-radius: 50%;
+      border: 6px solid #f2f2f2;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
       overflow: hidden;
-      margin-bottom: 25px;
-      border: 4px solid #ffffff;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      z-index: 2;
+      background: #fff;
     }
 
-    .teacher-avatar img {
+    .teacher-avatar-corner img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -677,36 +696,115 @@
       font-size: 24px;
       font-weight: 600;
       color: #000;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
+      max-width: calc(100% - 70px);
     }
 
     .teacher-card .teacher-role {
-      font-size: 15px;
+      font-size: 14px;
       color: #e3203a;
       text-transform: uppercase;
       letter-spacing: 1px;
       font-weight: 600;
-      margin-bottom: 20px;
       display: block;
+      margin-bottom: 20px;
     }
 
-    .teacher-card p {
-      font-size: 16px;
+    .teacher-bio {
+      font-size: 15px;
       color: #555;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+
+    /* CV Accordion */
+    .cv-accordion {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: auto;
+    }
+
+    .cv-accordion-item {
+      background: #ffffff;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .cv-accordion-item:hover {
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+
+    .cv-accordion-header {
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: none;
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-family: "Inter", sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: #000;
+      transition: color 0.3s ease;
+    }
+
+    .cv-accordion-header:hover {
+      color: #e3203a;
+    }
+
+    .cv-accordion-icon {
+      font-size: 20px;
+      font-weight: 300;
+      transition: transform 0.4s ease;
+    }
+
+    .cv-accordion-item.active .cv-accordion-icon {
+      transform: rotate(45deg);
+      color: #e3203a;
+    }
+
+    .cv-accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      background: #ffffff;
+    }
+
+    .cv-accordion-inner {
+      padding: 0 20px 20px;
+      font-size: 13px;
+      color: #666;
       line-height: 1.6;
     }
 
+    .cv-accordion-inner ul {
+      margin-top: 8px;
+      padding-left: 15px;
+    }
+
+    .cv-accordion-inner ul li {
+      margin-bottom: 4px;
+      list-style-type: disc;
+    }
+
     @media (max-width: 991px) {
-      .teachers-grid {
+      .teachers-grid-cascada {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 60px;
+        margin-top: 40px;
       }
-      .teachers-grid .teacher-card:nth-child(2) {
+      .teachers-grid-cascada .teacher-card:nth-child(2),
+      .teachers-grid-cascada .teacher-card:nth-child(3) {
         transform: translateY(0);
       }
       .teacher-card {
-        border-radius: 24px;
-        padding: 30px;
+        height: auto;
       }
     }
 
@@ -1110,33 +1208,98 @@
   </section>
 
   <!-- =====================================================
-     DOCENTES (Staggered Cards)
+     DOCENTES (Cascada Innovadora)
      ===================================================== -->
   <section class="teachers-section">
     <h2>Docentes de la Formación</h2>
-    <div class="teachers-grid">
+    <div class="teachers-grid-cascada">
       
-      <!-- Docente 1 -->
+      <!-- Docente 1 (Con CV en Acordeón) -->
       <div class="teacher-card">
-        <div class="teacher-avatar">
+        <div class="teacher-avatar-corner">
           <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&q=80" alt="Tomás Bonino">
         </div>
+        
         <h3>Tomás Bonino</h3>
         <span class="teacher-role">Director & Fisioterapeuta</span>
-        <p>
-          Fundador y director de ESITEF. Fisioterapeuta clínico desde 2001 e investigador en "Neurocognition and Action". Creador del programa "Crecer en movimiento" y autor del libro "DOLOR. Conceptos esenciales para fisioterapeutas (y pacientes)".
+        
+        <p class="teacher-bio">
+          Fundador y director de ESITEF. Fisioterapeuta clínico desde 2001 e investigador en "Neurocognition and Action". Creador del programa "Crecer en movimiento".
         </p>
+
+        <!-- Acordeón de CV -->
+        <div class="cv-accordion">
+          <div class="cv-accordion-item">
+            <button class="cv-accordion-header" aria-expanded="false">
+              Experiencia Clínica <span class="cv-accordion-icon">+</span>
+            </button>
+            <div class="cv-accordion-content">
+              <div class="cv-accordion-inner">
+                Más de 20 años de experiencia clínica especializada en el abordaje del dolor crónico y la rehabilitación neurológica.
+              </div>
+            </div>
+          </div>
+          <div class="cv-accordion-item">
+            <button class="cv-accordion-header" aria-expanded="false">
+              Formación <span class="cv-accordion-icon">+</span>
+            </button>
+            <div class="cv-accordion-content">
+              <div class="cv-accordion-inner">
+                <ul>
+                  <li>Licenciado en Kinesiología (UNC).</li>
+                  <li>Máster en Neurociencia.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="cv-accordion-item">
+            <button class="cv-accordion-header" aria-expanded="false">
+              Investigación <span class="cv-accordion-icon">+</span>
+            </button>
+            <div class="cv-accordion-content">
+              <div class="cv-accordion-inner">
+                Investigador activo en "Neurocognition and Action". Enfoque en percepción corporal y dolor crónico.
+              </div>
+            </div>
+          </div>
+          <div class="cv-accordion-item">
+            <button class="cv-accordion-header" aria-expanded="false">
+              Publicaciones <span class="cv-accordion-icon">+</span>
+            </button>
+            <div class="cv-accordion-content">
+              <div class="cv-accordion-inner">
+                Autor del libro <strong>"DOLOR. Conceptos esenciales para fisioterapeutas"</strong>.
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- Docente 2 -->
       <div class="teacher-card">
-        <div class="teacher-avatar">
+        <div class="teacher-avatar-corner">
           <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&q=80" alt="Prof. Noelia Martínez">
         </div>
-        <h3>Prof. Noelia Martínez</h3>
+        
+        <h3>Noelia Martínez</h3>
         <span class="teacher-role">Entrenadora Física</span>
-        <p>
-          Especialista en la valoración del adulto mayor y movimiento expresivo. Colaboradora principal en el Programa Activo de Autonomía Motriz con amplia experiencia en la adaptación de contextos naturales y prevención de caídas.
+        
+        <p class="teacher-bio">
+          Especialista en la valoración del adulto mayor y movimiento expresivo. Amplia experiencia en la adaptación de contextos naturales y prevención de caídas. Colaboradora principal en el Programa Activo de Autonomía Motriz.
+        </p>
+      </div>
+
+      <!-- Docente 3 -->
+      <div class="teacher-card">
+        <div class="teacher-avatar-corner">
+          <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop&q=80" alt="Dra. Laura Gómez">
+        </div>
+        
+        <h3>Laura Gómez</h3>
+        <span class="teacher-role">Neuropsicóloga</span>
+        
+        <p class="teacher-bio">
+          Experta en rehabilitación cognitiva. Su enfoque integra el trabajo neurocognitivo con las capacidades motrices para mejorar la autonomía de los adultos mayores en su vida diaria.
         </p>
       </div>
 
@@ -1221,6 +1384,32 @@
           acc.classList.remove('active');
           acc.querySelector('.accordion-header').setAttribute('aria-expanded', 'false');
           acc.querySelector('.accordion-content').style.maxHeight = null;
+        });
+
+        // Si no estaba activo, abrir este
+        if (!isActive) {
+          item.classList.add('active');
+          header.setAttribute('aria-expanded', 'true');
+          content.style.maxHeight = content.scrollHeight + 'px';
+        }
+      });
+    });
+
+    // ===== CV ACORDEÓN (DOCENTES) =====
+    const cvAccordionItems = document.querySelectorAll('.cv-accordion-item');
+    
+    cvAccordionItems.forEach(item => {
+      const header = item.querySelector('.cv-accordion-header');
+      const content = item.querySelector('.cv-accordion-content');
+      
+      header.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+        
+        // Cerrar todos
+        cvAccordionItems.forEach(acc => {
+          acc.classList.remove('active');
+          acc.querySelector('.cv-accordion-header').setAttribute('aria-expanded', 'false');
+          acc.querySelector('.cv-accordion-content').style.maxHeight = null;
         });
 
         // Si no estaba activo, abrir este
