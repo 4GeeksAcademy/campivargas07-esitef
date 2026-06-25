@@ -605,14 +605,18 @@
       flex: 1;
       display: flex;
       flex-direction: column;
-      justify-content: center; /* vertical center in desktop */
+      justify-content: center;
+      /* vertical center in desktop */
       width: 100%;
     }
 
     /* Map background */
     .hero-bg {
       position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
       background-image: radial-gradient(#d5d5d5 2px, transparent 2px);
       background-size: 24px 24px;
       opacity: 0.6;
@@ -633,7 +637,7 @@
       position: relative;
       z-index: 1;
     }
-    
+
     .hero-left {
       max-width: 500px;
     }
@@ -667,8 +671,15 @@
     }
 
     @keyframes parpadeo {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0;
+      }
     }
 
     .hero-subtitle {
@@ -725,7 +736,7 @@
       font-size: 22px;
       box-shadow: 0 4px 15px rgba(227, 0, 15, 0.2);
     }
-    
+
     .country-btn.btn-online:hover {
       transform: translateY(-2px);
       box-shadow: 0 6px 20px rgba(227, 0, 15, 0.4);
@@ -753,10 +764,12 @@
       height: 100%;
       z-index: 2;
     }
+
     .marquee-section::before {
       left: 0;
       background: linear-gradient(to right, #ffffff, transparent);
     }
+
     .marquee-section::after {
       right: 0;
       background: linear-gradient(to left, #ffffff, transparent);
@@ -773,8 +786,13 @@
     }
 
     @keyframes scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
     }
 
     .marquee-item {
@@ -809,123 +827,162 @@
         display: flex;
         flex-direction: column;
       }
+
       .hero-body {
         flex: 1;
-        min-height: 0;          /* impide que hero-body crezca más allá de lo asignado */
-        overflow: hidden;        /* evita que el contenido tape los logos del marquee */
+        min-height: 0;
+        /* impide que hero-body crezca más allá de lo asignado */
+        overflow: hidden;
+        /* evita que el contenido tape los logos del marquee */
         display: flex;
         flex-direction: column;
         justify-content: center;
         padding-top: 8px;
         padding-bottom: 8px;
       }
+
       .hero-inner {
         grid-template-columns: 1fr;
-        gap: 40px;           /* subtítulo → botones */
+        gap: 40px;
+        /* subtítulo → botones */
         text-align: center;
       }
+
       .hero-left {
         margin: 0 auto;
       }
+
       .paises-row {
         justify-content: center;
       }
+
       .hero-subtitle {
-        margin-top: 30px;    /* título → subtítulo */
+        margin-top: 30px;
+        /* título → subtítulo */
       }
+
       .hero-paises {
-        gap: 25px;           /* entre filas de botones */
+        gap: 25px;
+        /* entre filas de botones */
       }
+
       .marquee-section {
-        padding: 40px 0;     /* botones → logos */
+        padding: 40px 0;
+        /* botones → logos */
         flex-shrink: 0;
       }
+
       .marquee-item {
         font-size: 18px;
         padding: 0 24px;
       }
+
       .marquee-item svg {
         height: 20px;
       }
     }
 
     @media (max-width: 768px) {
-      .titulo-esitef { font-size: clamp(32px, 8.5vw, 44px); }
+      .titulo-esitef {
+        font-size: clamp(32px, 8.5vw, 44px);
+      }
+
       .hero-section {
         height: calc(100svh - 70px);
         min-height: 0;
         padding: 0 16px;
       }
+
       .hero-inner {
         gap: 36px;
       }
+
       .hero-subtitle {
         font-size: 15px;
         margin-top: 26px;
       }
+
       .hero-paises {
         gap: 22px;
       }
+
       .paises-row {
         gap: 14px;
       }
+
       .country-btn {
         font-size: 17px;
         padding: 11px 22px;
         min-width: 136px;
       }
+
       .country-btn.btn-online {
         padding: 13px 36px;
         font-size: 19px;
       }
+
       .marquee-section {
         padding: 36px 0;
       }
+
       .marquee-item {
         font-size: 16px;
         padding: 0 20px;
       }
+
       .marquee-item svg {
         height: 18px;
       }
     }
 
     @media (max-width: 420px) {
-      .titulo-esitef { font-size: clamp(28px, 7.5vw, 34px); }
+      .titulo-esitef {
+        font-size: clamp(28px, 7.5vw, 34px);
+      }
+
       .hero-section {
         height: calc(100svh - 70px);
         min-height: 0;
         padding: 0 14px;
       }
+
       .hero-inner {
         gap: 30px;
       }
+
       .hero-subtitle {
         font-size: 14px;
         margin-top: 22px;
       }
+
       .hero-paises {
         gap: 18px;
       }
+
       .paises-row {
         gap: 10px;
       }
+
       .country-btn {
         font-size: 15px;
         padding: 10px 18px;
         min-width: 122px;
       }
+
       .country-btn.btn-online {
         padding: 11px 30px;
         font-size: 17px;
       }
+
       .marquee-section {
         padding: 28px 0;
       }
+
       .marquee-item {
         font-size: 14px;
         padding: 0 16px;
       }
+
       .marquee-item svg {
         height: 16px;
       }
@@ -981,15 +1038,15 @@
       flex: 4;
       cursor: default;
       border-color: #ebebeb;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
     }
 
     .accordion-content {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      min-width: 140px; 
-      width: 160px; 
+      min-width: 140px;
+      width: 160px;
       z-index: 2;
     }
 
@@ -1054,7 +1111,7 @@
       margin-left: 30px;
       border-radius: 20px;
       overflow: hidden;
-      background: #f9f9f9; 
+      background: #f9f9f9;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1080,6 +1137,7 @@
         padding: 12px;
         border-radius: 32px;
       }
+
       .accordion-item {
         height: 100px;
         flex: none !important;
@@ -1087,32 +1145,40 @@
         transition: height 0.5s cubic-bezier(0.25, 1, 0.5, 1);
         border-radius: 24px;
       }
+
       .accordion-item.active {
         height: 380px;
       }
+
       .accordion-content {
         min-width: 100%;
         width: 100%;
         flex-direction: row;
         align-items: center;
       }
+
       .accordion-item.active .accordion-content {
         flex-direction: column;
         align-items: flex-start;
       }
+
       .accordion-number {
         margin-right: 20px;
       }
+
       .accordion-item.active .accordion-number {
         margin-bottom: 20px;
         margin-right: 0;
       }
+
       .accordion-text p {
         display: none;
       }
+
       .accordion-item.active .accordion-text p {
         display: -webkit-box;
       }
+
       .accordion-image {
         margin-left: 0;
         margin-top: 20px;
@@ -1120,13 +1186,16 @@
         height: 200px;
         width: 100%;
       }
+
       .accordion-item:not(.active) .accordion-image {
         display: none;
       }
+
       .accordion-text h3 {
         margin-bottom: 0;
         font-size: 20px;
       }
+
       .accordion-item.active .accordion-text h3 {
         margin-bottom: 12px;
         font-size: 24px;
@@ -1180,9 +1249,9 @@
     .footer-newsletter-form {
       display: flex;
       gap: 0;
-      border: 1px solid rgba(255,255,255,0.15);
+      border: 1px solid rgba(255, 255, 255, 0.15);
       border-radius: 50px;
-      background: rgba(255,255,255,0.07);
+      background: rgba(255, 255, 255, 0.07);
       overflow: hidden;
       width: 100%;
     }
@@ -1200,7 +1269,7 @@
     }
 
     .footer-newsletter-form input::placeholder {
-      color: rgba(255,255,255,0.35);
+      color: rgba(255, 255, 255, 0.35);
     }
 
     .footer-newsletter-form button {
@@ -1236,7 +1305,7 @@
       align-items: center;
       gap: 6px;
       font-size: 13px;
-      color: rgba(255,255,255,0.35);
+      color: rgba(255, 255, 255, 0.35);
       white-space: nowrap;
       padding-top: 4px;
     }
@@ -1245,7 +1314,7 @@
       width: 14px;
       height: 14px;
       fill: none;
-      stroke: rgba(255,255,255,0.35);
+      stroke: rgba(255, 255, 255, 0.35);
       stroke-width: 1.8;
       flex-shrink: 0;
     }
@@ -1258,7 +1327,7 @@
 
     .footer-pages-links a {
       font-size: 16px;
-      color: rgba(255,255,255,0.75);
+      color: rgba(255, 255, 255, 0.75);
       text-decoration: none;
       font-weight: 400;
       transition: color 0.18s ease;
@@ -1296,8 +1365,8 @@
       width: 40px;
       height: 40px;
       border-radius: 50%;
-      border: 1px solid rgba(255,255,255,0.2);
-      color: rgba(255,255,255,0.7);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: rgba(255, 255, 255, 0.7);
       text-decoration: none;
       transition: all 0.18s ease;
       background: transparent;
@@ -1327,12 +1396,12 @@
     }
 
     .footer-email:hover {
-      color: rgba(255,255,255,0.6);
+      color: rgba(255, 255, 255, 0.6);
     }
 
     .footer-copyright {
       font-size: 12px;
-      color: rgba(255,255,255,0.3);
+      color: rgba(255, 255, 255, 0.3);
       text-align: right;
       white-space: nowrap;
       padding-bottom: 4px;
@@ -1343,14 +1412,17 @@
       .footer-card {
         padding: 48px 0 36px;
       }
+
       .footer-content {
         padding: 0 32px;
       }
+
       .footer-top {
         flex-direction: column;
         gap: 40px;
         padding-bottom: 40px;
       }
+
       .footer-newsletter {
         max-width: 100%;
       }
@@ -1361,17 +1433,21 @@
         padding: 36px 0 28px;
         border-radius: 16px;
       }
+
       .footer-content {
         padding: 0 24px;
       }
+
       .footer-bottom {
         flex-direction: column;
         align-items: flex-start;
         gap: 16px;
       }
+
       .footer-copyright {
         text-align: left;
       }
+
       .footer-email {
         font-size: 28px;
       }
@@ -1379,7 +1455,8 @@
 
     /* ---- BLOG SECTION (SECCIÓN 3) ---- */
     .blog-section {
-      padding: 100px 20px 90px 20px; /* Reduced bottom padding (was 180px for stagger) */
+      padding: 100px 20px 90px 20px;
+      /* Reduced bottom padding (was 180px for stagger) */
       background: #ffffff;
     }
 
@@ -1401,12 +1478,14 @@
     /* Button "Ver todos" wrapper */
     .blog-ver-todos {
       text-align: center;
-      margin-top: 140px; /* offset for staggered cards on desktop */
+      margin-top: 140px;
+      /* offset for staggered cards on desktop */
     }
 
     @media (max-width: 991px) {
       .blog-ver-todos {
-        margin-top: 40px; /* no stagger on mobile */
+        margin-top: 40px;
+        /* no stagger on mobile */
       }
     }
 
@@ -1442,20 +1521,24 @@
       .blog-card:nth-child(1) {
         transform: translateY(0);
       }
+
       .blog-card:nth-child(2) {
         transform: translateY(40px);
       }
+
       .blog-card:nth-child(3) {
         transform: translateY(80px);
       }
-      
+
       /* Hover combined with stagger */
       .blog-card:nth-child(1):hover {
         transform: translateY(-5px);
       }
+
       .blog-card:nth-child(2):hover {
         transform: translateY(35px);
       }
+
       .blog-card:nth-child(3):hover {
         transform: translateY(75px);
       }
@@ -1542,22 +1625,25 @@
       .blog-section {
         padding: 80px 20px 40px;
       }
+
       .blog-grid {
         grid-template-columns: 1fr;
         gap: 30px;
       }
+
       .blog-card {
         min-height: auto;
         padding: 35px 24px;
       }
+
       .blog-titulo {
         font-size: 30px;
         margin-bottom: 40px;
       }
     }
 
-  
-    
+
+
     /* =====================================================
        MENTORÍAS CUSTOM CSS (UPDATED)
        ===================================================== */
@@ -1577,7 +1663,10 @@
 
     .hero-bg {
       position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
       background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2000&auto=format&fit=crop');
       background-size: cover;
       background-position: center;
@@ -1591,7 +1680,10 @@
     /* Degradado superpuesto para garantizar que se funda a blanco sin depender de mask-image */
     .hero-bg-overlay {
       position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
       background: linear-gradient(to bottom, #ffffff 0%, transparent 35%, transparent 65%, #ffffff 100%);
       z-index: 1;
       pointer-events: none;
@@ -1613,8 +1705,9 @@
     }
 
     .mentorias-subtitle {
-      font-family: "Inter", sans-serif;
-      font-size: clamp(20px, 1.8vw, 24px); /* Increased by ~20% */
+      font-family: "Bricolage Grotesque", sans-serif;
+      font-size: clamp(25px, 2.25vw, 30px);
+      font-weight: 300;
       color: #444;
       line-height: 1.5;
       margin-bottom: 40px;
@@ -1647,7 +1740,7 @@
     .section-padding {
       padding: 100px 20px;
     }
-    
+
     .section-title {
       font-family: "Bricolage Grotesque", sans-serif;
       font-size: clamp(32px, 4vw, 48px);
@@ -1673,7 +1766,7 @@
       background: #ffffff;
       border-radius: 28px;
       padding: 40px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
       display: flex;
       flex-direction: column;
     }
@@ -1693,7 +1786,7 @@
       align-items: center;
       justify-content: center;
       margin-bottom: 24px;
-      border: 1px solid rgba(0,0,0,0.05);
+      border: 1px solid rgba(0, 0, 0, 0.05);
     }
 
     .contraste-card.yes .contraste-icon-wrapper {
@@ -1721,9 +1814,19 @@
       color: #000;
     }
 
-    .contraste-card.yes h3 { color: #E3000F; }
-    .contraste-card.no h3 { color: #666; }
-    .contraste-card p { font-size: 16px; color: #444; line-height: 1.6; }
+    .contraste-card.yes h3 {
+      color: #E3000F;
+    }
+
+    .contraste-card.no h3 {
+      color: #666;
+    }
+
+    .contraste-card p {
+      font-size: 16px;
+      color: #444;
+      line-height: 1.6;
+    }
 
     /* Ayudar Tabs Section */
     .ayudar-container {
@@ -1768,7 +1871,7 @@
     .ayudar-tab.active {
       background: #fff;
       color: #000;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
       font-weight: 600;
     }
 
@@ -1776,7 +1879,7 @@
       background: #fff;
       border-radius: 36px;
       padding: 10px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.04);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
     }
 
     .ayudar-tab-pane {
@@ -1791,8 +1894,15 @@
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .ayudar-tab-img {
@@ -1843,13 +1953,13 @@
 
     /* Timeline Section */
     .timeline-container {
-      max-width: 1000px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 40px 20px;
     }
 
     .timeline-wrapper {
-      max-width: 800px;
+      max-width: 1000px;
       margin: 0 auto;
       position: relative;
       padding-left: 50px;
@@ -1858,7 +1968,9 @@
     .timeline-wrapper::before {
       content: '';
       position: absolute;
-      top: 10px; bottom: 40px; left: 19px;
+      top: 10px;
+      bottom: 40px;
+      left: 19px;
       width: 2px;
       background: #eaeaea;
     }
@@ -1871,8 +1983,10 @@
     .timeline-item::before {
       content: '';
       position: absolute;
-      top: 0; left: -38px;
-      width: 16px; height: 16px;
+      top: 0;
+      left: -38px;
+      width: 16px;
+      height: 16px;
       border-radius: 50%;
       background: #E3000F;
       border: 4px solid #fff;
@@ -1885,13 +1999,13 @@
       border: 1px solid #eaeaea;
       border-radius: 24px;
       padding: 40px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
       transition: transform 0.3s ease;
     }
 
     .timeline-content:hover {
       transform: translateY(-3px);
-      box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
     }
 
     .timeline-content h3 {
@@ -1912,12 +2026,17 @@
     .inversion-card {
       background: #111;
       color: #fff;
-      border-radius: 24px;
-      padding: 50px;
-      text-align: center;
+      border-radius: 36px;
+      padding: 60px;
       margin-top: 60px;
       position: relative;
       z-index: 5;
+      text-align: left;
+    }
+
+    .inversion-header {
+      text-align: center;
+      margin-bottom: 40px;
     }
 
     .inversion-card h3 {
@@ -1928,19 +2047,102 @@
     }
 
     .inversion-price {
-      font-size: 54px;
+      font-size: 64px;
       font-weight: 800;
       color: #E3000F;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
       font-family: "Bricolage Grotesque", sans-serif;
     }
 
-    .inversion-card p {
+    .inversion-body {
+      max-width: 800px;
+      margin: 0 auto 40px auto;
+    }
+
+    .inversion-body p {
+      font-size: 17px;
+      color: rgba(255, 255, 255, 0.85);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .inversion-highlight {
+      background: rgba(227, 0, 15, 0.1);
+      border-left: 4px solid #E3000F;
+      padding: 20px;
+      border-radius: 0 12px 12px 0;
+      margin-top: 30px;
       font-size: 16px;
-      color: rgba(255,255,255,0.8);
-      max-width: 600px;
+      color: #fff;
+    }
+
+    .inversion-payments {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      max-width: 800px;
       margin: 0 auto;
-      line-height: 1.6;
+      background: #1a1a1a;
+      padding: 40px;
+      border-radius: 24px;
+    }
+
+    .inversion-payments h4 {
+      font-family: "Bricolage Grotesque", sans-serif;
+      font-size: 22px;
+      margin-bottom: 20px;
+      color: #fff;
+      font-weight: 400;
+    }
+
+    .inversion-payments p {
+      font-size: 15px;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .inversion-payments ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .inversion-payments li {
+      position: relative;
+      padding-left: 24px;
+      margin-bottom: 15px;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .inversion-payments li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #E3000F;
+      font-weight: bold;
+    }
+
+    .methods-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .methods-list li {
+      background: #2a2a2a;
+      padding: 8px 16px !important;
+      border-radius: 50px;
+      font-size: 14px !important;
+      color: #fff !important;
+      margin-bottom: 0;
+    }
+
+    .methods-list li::before {
+      display: none;
     }
 
     /* Perfil */
@@ -1949,21 +2151,27 @@
       border-radius: 36px;
       max-width: 1200px;
       margin: 0 auto;
-      padding: 60px;
+      padding: 10px;
       display: flex;
       align-items: center;
-      gap: 60px;
+      gap: 40px;
     }
 
     .perfil-img {
-      width: 300px;
-      height: 300px;
-      border-radius: 30px;
+      width: 36%;
+      min-width: 300px;
+      height: auto;
+      aspect-ratio: 1;
+      border-radius: 26px;
       background: #ddd;
       flex-shrink: 0;
       overflow: hidden;
     }
-    
+
+    .perfil-content {
+      padding: 30px 40px 30px 0;
+    }
+
     .perfil-img img {
       width: 100%;
       height: 100%;
@@ -1978,9 +2186,9 @@
     }
 
     .perfil-content h4 {
-      font-size: 18px;
-      color: #E3000F;
-      font-weight: 500;
+      font-size: 24px;
+      color: #000;
+      font-weight: 300;
       margin-bottom: 25px;
       line-height: 1.4;
     }
@@ -2047,27 +2255,82 @@
     }
 
     @media (max-width: 991px) {
-      .contraste-section, .perfil-section {
+
+      .contraste-section,
+      .perfil-section {
         grid-template-columns: 1fr;
         flex-direction: column;
         padding: 10px;
       }
+
+      .perfil-img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1;
+        border-radius: 26px;
+      }
+
+      .perfil-content {
+        padding: 20px 10px 30px;
+      }
+
       .ayudar-nav-wrapper {
         flex-direction: column;
         border-radius: 24px;
       }
+
       .ayudar-tab {
         width: 100%;
       }
+
       .ayudar-tab-pane.active {
         flex-direction: column;
       }
+
       .ayudar-content-wrapper {
         padding: 10px;
       }
+
+      .section-title {
+        text-align: center;
+        font-size: 32px;
+      }
+
+      .timeline-container {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+
+      .timeline-wrapper {
+        padding-left: 20px;
+      }
+
+      .timeline-wrapper::before {
+        left: 0;
+      }
+
+      .timeline-item::before {
+        left: -28px;
+        width: 14px;
+        height: 14px;
+      }
+
+      .timeline-content {
+        padding: 20px 15px;
+      }
+
+      .inversion-payments {
+        grid-template-columns: 1fr;
+        padding: 30px 20px;
+      }
+
+      .inversion-card {
+        padding: 40px 20px;
+      }
     }
-</style>
+  </style>
 </head>
+
 <body>
   <header class="header-default">
     <nav class="navbar navbar-right full-width">
@@ -2186,7 +2449,6 @@
         <p class="mentorias-subtitle">
           para profesionales que se atreven a pensar diferente
         </p>
-        <a href="#contacto" class="btn-mentorias-cta">Solicitar acceso</a>
       </div>
     </section>
 
@@ -2195,24 +2457,30 @@
       <div class="contraste-section">
         <div class="contraste-card yes">
           <div class="contraste-icon-wrapper">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-linecap="round" stroke-linejoin="round">
               <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
               <polyline points="22 4 12 14.01 9 11.01"></polyline>
             </svg>
           </div>
           <h3>Puedo ser tu mentor si buscas...</h3>
-          <p>Un punto de vista fresco y diferente sobre tu situación profesional. Si te animas a cuestionar lo establecido (incluso por ti mismo). Si deseas cambiar tu forma de hacer las cosas. Si quieres saber diseñar y ejecutar proyectos e ideas que rompan el molde. Si aspiras a poder llevar a la gente adecuada tu conocimiento y tu valor. Si anhelas crear una forma de trabajo y vida que te satisfagan mucho más.</p>
+          <p>Un punto de vista fresco y diferente sobre tu situación profesional. Si te animas a cuestionar lo
+            establecido (incluso por ti mismo). Si deseas cambiar tu forma de hacer las cosas. Si quieres saber diseñar
+            y ejecutar proyectos e ideas que rompan el molde. Si aspiras a poder llevar a la gente adecuada tu
+            conocimiento y tu valor. Si anhelas crear una forma de trabajo y vida que te satisfagan mucho más.</p>
         </div>
         <div class="contraste-card no">
           <div class="contraste-icon-wrapper">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-linecap="round" stroke-linejoin="round">
               <circle cx="12" cy="12" r="10"></circle>
               <line x1="15" y1="9" x2="9" y2="15"></line>
               <line x1="9" y1="9" x2="15" y2="15"></line>
             </svg>
           </div>
           <h3>No soy tu mentor ideal si buscas...</h3>
-          <p>Soluciones mágicas, consejos fáciles, pasos exactos de “cómo hacer algo” que funcione para todos, que te dé “las 10 claves del éxito profesional” o “cómo ganar mucho dinero sin hacer nada”.</p>
+          <p>Soluciones mágicas, consejos fáciles, pasos exactos de “cómo hacer algo” que funcione para todos, que te dé
+            “las 10 claves del éxito profesional” o “cómo ganar mucho dinero sin hacer nada”.</p>
         </div>
       </div>
     </section>
@@ -2220,7 +2488,7 @@
     <!-- BENEFICIOS (AYUDAR - TABS) -->
     <section class="section-padding" style="background: transparent;">
       <h2 class="section-title">Te puedo ayudar a :</h2>
-      
+
       <div class="ayudar-container">
         <div class="ayudar-nav-wrapper">
           <button class="ayudar-tab active" data-target="tab1">Ideas originales</button>
@@ -2229,61 +2497,71 @@
           <button class="ayudar-tab" data-target="tab4">Mejorar comunicación</button>
           <button class="ayudar-tab" data-target="tab5">Nuevas puertas</button>
         </div>
-        
+
         <div class="ayudar-content-wrapper">
           <!-- Tab 1 -->
           <div class="ayudar-tab-pane active" id="tab1">
             <div class="ayudar-tab-img">
-              <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=800&auto=format&fit=crop" alt="Ideas originales" />
+              <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=800&auto=format&fit=crop"
+                alt="Ideas originales" />
             </div>
             <div class="ayudar-tab-text">
               <span class="tab-badge">Perspectivas</span>
               <h3>Darte ideas originales</h3>
-              <p>Que no se te habían ocurrido y ofrecerte una visión nueva y distinta sobre tu situación profesional.</p>
+              <p>Que no se te habían ocurrido y ofrecerte una visión nueva y distinta sobre tu situación profesional.
+              </p>
             </div>
           </div>
           <!-- Tab 2 -->
           <div class="ayudar-tab-pane" id="tab2">
             <div class="ayudar-tab-img">
-              <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=800&auto=format&fit=crop" alt="Potenciar fortalezas" />
+              <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=800&auto=format&fit=crop"
+                alt="Potenciar fortalezas" />
             </div>
             <div class="ayudar-tab-text">
               <span class="tab-badge">Estrategia</span>
               <h3>Potenciar tus fortalezas</h3>
-              <p>Ver cómo compensar tus debilidades y organizar tus proyectos e ideas para hacerlas posibles de manera eficaz y real.</p>
+              <p>Ver cómo compensar tus debilidades y organizar tus proyectos e ideas para hacerlas posibles de manera
+                eficaz y real.</p>
             </div>
           </div>
           <!-- Tab 3 -->
           <div class="ayudar-tab-pane" id="tab3">
             <div class="ayudar-tab-img">
-              <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=800&auto=format&fit=crop" alt="Salir del estancamiento" />
+              <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=800&auto=format&fit=crop"
+                alt="Salir del estancamiento" />
             </div>
             <div class="ayudar-tab-text">
               <span class="tab-badge">Desarrollo</span>
               <h3>Salir del estancamiento</h3>
-              <p>Con nuevas perspectivas e ideas, focalizando las energías y tiempo en lo que más te importe, liberando tu potencial creativo.</p>
+              <p>Con nuevas perspectivas e ideas, focalizando las energías y tiempo en lo que más te importe, liberando
+                tu potencial creativo.</p>
             </div>
           </div>
           <!-- Tab 4 -->
           <div class="ayudar-tab-pane" id="tab4">
             <div class="ayudar-tab-img">
-              <img src="https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?q=80&w=800&auto=format&fit=crop" alt="Mejorar comunicación" />
+              <img src="https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?q=80&w=800&auto=format&fit=crop"
+                alt="Mejorar comunicación" />
             </div>
             <div class="ayudar-tab-text">
               <span class="tab-badge">Conexión</span>
               <h3>Mejorar la comunicación</h3>
-              <p>Sobre lo que piensas y haces en redes, con colegas y con tus pacientes de manera más clara y eficiente.</p>
+              <p>Sobre lo que piensas y haces en redes, con colegas y con tus pacientes de manera más clara y eficiente.
+              </p>
             </div>
           </div>
           <!-- Tab 5 -->
           <div class="ayudar-tab-pane" id="tab5">
             <div class="ayudar-tab-img">
-              <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=800&auto=format&fit=crop" alt="Nuevas puertas" />
+              <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=800&auto=format&fit=crop"
+                alt="Nuevas puertas" />
             </div>
             <div class="ayudar-tab-text">
               <span class="tab-badge">Networking</span>
               <h3>Abrir nuevas puertas</h3>
-              <p>Encontrar más y mejores contactos, y orientarte en cómo y dónde encontrar información valiosa que te sirva para tu carrera.</p>
+              <p>Encontrar más y mejores contactos, y orientarte en cómo y dónde encontrar información valiosa que te
+                sirva para tu carrera.</p>
             </div>
           </div>
         </div>
@@ -2292,34 +2570,89 @@
 
     <!-- PROCESO Y FORMATO (TIMELINE) -->
     <section class="section-padding">
-      <h2 class="section-title">¿En qué consiste la mentoría?</h2>
+      <h2 class="section-title" style="margin-top: -40px; margin-bottom: 20px;">¿En qué consiste la mentoría?</h2>
       <div class="timeline-container">
         <div class="timeline-wrapper">
-          
+
           <div class="timeline-item">
             <div class="timeline-content">
               <h3>Paso 1: Acceso y Evaluación</h3>
-              <p>Sólo tienes que escribirme contándome un resumen de todo lo que te preocupa, lo que te gustaría conseguir, qué situación profesional estás atravesando o en qué querrías que yo te pudiera ayudar.</p>
-              <p>Yo analizaré si realmente puedo aportarte valor. Si siento que así es, te escribiré para acordar una fecha y hora para la primera sesión. Si veo que no puedo aportarte gran cosa, también te lo diré.</p>
+              <p>Sólo tienes que escribirme contándome un resumen de todo lo que te preocupa, lo que te gustaría
+                conseguir, qué situación profesional estás atravesando o en qué querrías que yo te pudiera ayudar.</p>
+              <p>Yo analizaré si realmente puedo aportarte valor. Si siento que así es, te escribiré para acordar una
+                fecha y hora para la primera sesión. Si veo que no puedo aportarte gran cosa, también te lo diré.</p>
             </div>
           </div>
 
           <div class="timeline-item">
             <div class="timeline-content">
               <h3>Paso 2: Las sesiones de mentoría</h3>
-              <p>Son encuentros ONLINE individuales de 1 hora y media por ZOOM donde trabajaremos sobre todo aquello que me hayas planteado previamente (cada sesión se grabará y se te enviará para que puedas revisarla cuantas veces quieras).</p>
-              <p>No habrá fórmulas universales ni recetas prefabricadas. Mi papel es ayudarte a pensar mejor, ver posibilidades y ordenar tus ideas para avanzar con claridad y confianza.</p>
+              <p>Son encuentros ONLINE individuales de 1 hora y media por ZOOM donde trabajaremos sobre todo aquello que
+                me hayas planteado previamente (cada sesión se grabará y se te enviará para que puedas revisarla cuantas
+                veces quieras).</p>
+              <p>No habrá fórmulas universales ni recetas prefabricadas. Mi papel es ayudarte a pensar mejor, ver
+                posibilidades y ordenar tus ideas para avanzar con claridad y confianza.</p>
             </div>
           </div>
-          
+
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <h3>¿Cuántas sesiones serían? ¿Y cada cuánto?</h3>
+              <p>Como todo proceso personal e individual, es difícil de dar una respuesta concreta y general, pero vamos
+                a estipular un inicio de 3 sesiones para poder trabajar, profundizar y resolver todo lo que podamos. Y
+                si luego vemos entre ambos que hacen falta más , lo decidiremos juntos.</p>
+              <p>¿Cada cuánto serían? Cada proceso tiene un tiempo así que decidiremos entre ambos cuándo vernos la
+                siguiente vez al finalizar cada sesión.</p>
+            </div>
+          </div>
+
         </div>
 
         <div class="inversion-card">
-          <h3>Inversión del Programa</h3>
-          <div class="inversion-price">€695</div>
-          <p>Por el conjunto de la lectura y análisis de tu caso + las 3 sesiones individuales de hora y media + todas las estrategias y herramientas a implementar + grabaciones para siempre.</p>
-          <div style="margin-top: 30px;">
-            <a href="mailto:hola@esitef.com?subject=Solicitud%20de%20Mentoría" class="btn-mentorias-cta">Solicitar acceso</a>
+          <div class="inversion-header">
+            <h3>Inversión del Programa</h3>
+          </div>
+
+          <div class="inversion-payments" style="margin-bottom: 40px;">
+            <div class="payment-schedule">
+              <h4>¿Cuándo se paga?</h4>
+              <ul>
+                <li><strong>€400</strong> - Una vez te responda aceptándote al proceso de mentoría y antes de la primera
+                  sesión.</li>
+                <li><strong>€295</strong> - Tras la primera sesión y antes de la segunda.</li>
+              </ul>
+            </div>
+
+            <div class="payment-methods">
+              <h4>¿Cómo o dónde lo pago?</h4>
+              <p>Una vez aprobado el acceso, se te enviarán los enlaces para pagar mediante:</p>
+              <ul class="methods-list">
+                <li>Tarjeta de crédito/débito</li>
+                <li>PayPal</li>
+                <li>Bizum</li>
+                <li>Transferencia bancaria</li>
+                <li>Mercado Pago (LATAM)</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="inversion-body">
+            <p>Este tema siempre es difícil de estipular en algo tan abierto como esto. Por el conjunto de la lectura y
+              análisis de tu caso + las 3 sesiones individuales de hora y media cada una + todas las estrategias y
+              herramientas a implementar + que tengas las grabaciones de las sesiones para siempre, tiene un coste de
+              695 euros.</p>
+            <p>No es que sienta que tenga que explicar el por qué de esta cantidad pero considero que todo lo que te vas
+              a llevar y te va a sumar este proceso es de muy alto valor. Supondrá un cambio y una mejora en tu vida
+              profesional desde que lo hagamos para siempre Y el coste económico sólo algo puntual.</p>
+            <p>Voy a poner toda la carne en asador. Todo mi conocimiento, experiencia, creatividad y 25 años de
+              vivencias profesionales a tu disposición.</p>
+            <p>Es claro que quizás esta suma no es para todo el mundo. Pero lo que vale, cuesta.</p>
+
+            <div class="inversion-highlight">
+              <strong>¿Necesitas más sesiones?</strong><br>
+              Si luego fueran necesarias más sesiones, tendrán un coste de 200 euros cada una si son únicas o podemos
+              ver entre ambos otro plan si es que requieres más acompañamiento.
+            </div>
           </div>
         </div>
       </div>
@@ -2329,14 +2662,17 @@
     <section class="section-padding" style="background: #fff;">
       <div class="perfil-section">
         <div class="perfil-img">
-          <!-- Placeholder para la foto de Tomás -->
-          <img src="https://images.unsplash.com/photo-1558222218-b7b54eede3f3?q=80&w=800&auto=format&fit=crop" alt="Tomás Bonino">
+          <img src="https://esitef.com/online/wp-content/uploads/2026/06/Tomas_Bonino.jpg" alt="Tomás Bonino">
         </div>
         <div class="perfil-content">
           <h3>¿Quién es Tomás?</h3>
-          <h4>Fisioterapeuta / Movement Coach / Emprendedor / Comunicador / Investigador / Escritor / Divulgador / Docente / Viajero</h4>
-          <p>A lo que podríamos añadir: "Empresario, inversor, consultor, asesor y antropólogo". Y también sumar: "curioso empedernido, aprendiz voraz, pensador ecléctico y creativo".</p>
-          <p>Quizás sea ésta una manera poco habitual de presentar un CV, pero es que describir a Tomás desde una sola perspectiva sería injusto y poco realista. Es por todas estas características que Tomás suele ser capaz de ver las cosas de un modo distinto y aportar una perspectiva nueva y amplia.</p>
+          <h4>Fisioterapeuta / Movement Coach / Emprendedor / Comunicador / Investigador / Escritor / Divulgador /
+            Docente / Viajero</h4>
+          <p>A lo que podríamos añadir: "Empresario, inversor, consultor, asesor y antropólogo". Y también sumar:
+            "curioso empedernido, aprendiz voraz, pensador ecléctico y creativo".</p>
+          <p>Quizás sea ésta una manera poco habitual de presentar un CV, pero es que describir a Tomás desde una sola
+            perspectiva sería injusto y poco realista. Es por todas estas características que Tomás suele ser capaz de
+            ver las cosas de un modo distinto y aportar una perspectiva nueva y amplia.</p>
         </div>
       </div>
     </section>
@@ -2345,9 +2681,12 @@
     <section class="section-padding">
       <h2 class="section-title">Lo que dicen los profesionales</h2>
       <div class="testimonios-grid">
-        
+
         <div class="testimonio-card">
-          <p class="testimonio-text">En un momento crítico de mi vida a nivel académico, laboral y existencial, con una tesis doctoral pronta a entregar, Tomás me ayudó a poner en orden mis ideas y tareas pendientes estratégicamente. Con Tomás materializamos la idea de que "el tiempo tú lo creas en la medida que lo vives".</p>
+          <p class="testimonio-text">En un momento crítico de mi vida a nivel académico, laboral y existencial, con una
+            tesis doctoral pronta a entregar, Tomás me ayudó a poner en orden mis ideas y tareas pendientes
+            estratégicamente. Con Tomás materializamos la idea de que "el tiempo tú lo creas en la medida que lo vives".
+          </p>
           <div class="testimonio-author">
             <div class="author-info">
               <h5>Edis</h5>
@@ -2357,7 +2696,9 @@
         </div>
 
         <div class="testimonio-card">
-          <p class="testimonio-text">Trabajar con Tomás ha sido un antes y un después. Me ayudó a entender 'la soledad del líder' y a fundar mi propia empresa. Si buscas un mentor honesto que te impulse a crecer y a salir del molde, no hay nadie como él.</p>
+          <p class="testimonio-text">Trabajar con Tomás ha sido un antes y un después. Me ayudó a entender 'la soledad
+            del líder' y a fundar mi propia empresa. Si buscas un mentor honesto que te impulse a crecer y a salir del
+            molde, no hay nadie como él.</p>
           <div class="testimonio-author">
             <div class="author-info">
               <h5>Ernesto</h5>
@@ -2367,7 +2708,9 @@
         </div>
 
         <div class="testimonio-card">
-          <p class="testimonio-text">Me ayudó a replantear completamente mi estructura de trabajo. Hoy, atiendo alrededor de 6 pacientes al día, genero un poco más de ingresos que antes y recuperé algo que había perdido: mi tiempo personal.</p>
+          <p class="testimonio-text">Me ayudó a replantear completamente mi estructura de trabajo. Hoy, atiendo
+            alrededor de 6 pacientes al día, genero un poco más de ingresos que antes y recuperé algo que había perdido:
+            mi tiempo personal.</p>
           <div class="testimonio-author">
             <div class="author-info">
               <h5>Pedro</h5>
@@ -2377,7 +2720,9 @@
         </div>
 
         <div class="testimonio-card">
-          <p class="testimonio-text">Pude redefinir mi carrera desde perspectivas que no imaginaba posibles. Nos dio el soporte y seguridad para apostar por algo novedoso. Contar con su perspectiva ha supuesto un antes y un después, pasando a pensar “out of the box”.</p>
+          <p class="testimonio-text">Pude redefinir mi carrera desde perspectivas que no imaginaba posibles. Nos dio el
+            soporte y seguridad para apostar por algo novedoso. Contar con su perspectiva ha supuesto un antes y un
+            después, pasando a pensar “out of the box”.</p>
           <div class="testimonio-author">
             <div class="author-info">
               <h5>Miguel</h5>
@@ -2387,7 +2732,9 @@
         </div>
 
         <div class="testimonio-card">
-          <p class="testimonio-text">Ha sido una ayuda enorme para sacar adelante mi proyecto. Me ayudó a dar forma a mis ideas, establecer prioridades y convertirlas en un proyecto real y bien estructurado. Lo recomiendo totalmente.</p>
+          <p class="testimonio-text">Ha sido una ayuda enorme para sacar adelante mi proyecto. Me ayudó a dar forma a
+            mis ideas, establecer prioridades y convertirlas en un proyecto real y bien estructurado. Lo recomiendo
+            totalmente.</p>
           <div class="testimonio-author">
             <div class="author-info">
               <h5>Eugenia</h5>
@@ -2397,7 +2744,9 @@
         </div>
 
         <div class="testimonio-card">
-          <p class="testimonio-text">Tomás me orientó poniendo foco en lo que era realmente importante. Me dio el hilo del que tirar, un hilo que iba a remover mis cimientos, poniendo límites y dándome la posibilidad de ver mi trabajo desde otro punto de vista.</p>
+          <p class="testimonio-text">Tomás me orientó poniendo foco en lo que era realmente importante. Me dio el hilo
+            del que tirar, un hilo que iba a remover mis cimientos, poniendo límites y dándome la posibilidad de ver mi
+            trabajo desde otro punto de vista.</p>
           <div class="testimonio-author">
             <div class="author-info">
               <h5>Noelia</h5>
@@ -2411,24 +2760,24 @@
 
   </main>
 
-  
+
 
   <script>
     // Header mobile toggle
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       const toggler = document.querySelector('.navbar-toggler');
       const navMenu = document.querySelector('.navbar-nav');
-      
-      if(toggler && navMenu) {
-        toggler.addEventListener('click', function() {
+
+      if (toggler && navMenu) {
+        toggler.addEventListener('click', function () {
           navMenu.classList.add('active');
           document.body.style.overflow = 'hidden';
         });
       }
-      
+
       const closeBtn = document.querySelector('.btn-nav-close');
-      if(closeBtn && navMenu) {
-        closeBtn.addEventListener('click', function() {
+      if (closeBtn && navMenu) {
+        closeBtn.addEventListener('click', function () {
           navMenu.classList.remove('active');
           document.body.style.overflow = '';
         });
@@ -2439,7 +2788,7 @@
       const panes = document.querySelectorAll('.ayudar-tab-pane');
 
       tabs.forEach(tab => {
-        tab.addEventListener('click', function() {
+        tab.addEventListener('click', function () {
           // Remove active class from all tabs and panes
           tabs.forEach(t => t.classList.remove('active'));
           panes.forEach(p => p.classList.remove('active'));
@@ -2453,4 +2802,5 @@
     });
   </script>
 </body>
+
 </html>
