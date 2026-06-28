@@ -1557,6 +1557,8 @@
     }
 
   </style>
+  <link rel="stylesheet" href="assets/navbar-v2.css">
+  <link rel="stylesheet" href="assets/login-transition.css">
 </head>
 
 <body>
@@ -1564,7 +1566,8 @@
   <!-- =====================================================
      HEADER — Navbar exacto del sitio
      ===================================================== -->
-  <header class="header-default">
+  <header class="header-default header-navbar-v2">
+    <div class="navbar-v2-overlay" aria-hidden="true"></div>
     <nav class="navbar navbar-right full-width">
 
       <!-- Logo -->
@@ -1584,8 +1587,9 @@
       </div>
 
       <!-- Hamburguesa -->
-      <button class="navbar-toggler" id="menu-toggle" aria-label="Abrir menú">
-        <div class="toggle-icon"><span></span></div>
+      <button class="navbar-toggler" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+        <span class="burger-line" aria-hidden="true"></span>
+        <span class="burger-line" aria-hidden="true"></span>
       </button>
 
       <!-- Menú principal -->
@@ -1601,7 +1605,7 @@
 
           <!-- Ingresar (solo móvil) -->
           <li class="item-movil-entrar menu-item">
-            <a href="https://esitef.com/online/dashboard/">Ingresar</a>
+            <a href="login.html" class="js-login-link">Ingresar</a>
           </li>
 
           <!-- Carrito (solo móvil) -->
@@ -1647,6 +1651,15 @@
             <a href="https://esitef.com/online/faqs/">FAQs</a>
           </li>
 
+          <li class="nav-mobile-socials" aria-label="Redes sociales">
+            <a href="https://www.instagram.com/esitef_oficial/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/esitef.sudamerica" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+          </li>
+
         </ul>
       </div>
 
@@ -1664,7 +1677,7 @@
           </a>
         </div>
         <div class="utils-btn">
-          <a class="btn-getstarted" href="https://esitef.com/online/dashboard/">Ingresar</a>
+          <a class="btn-getstarted js-login-link" href="login.html">Ingresar</a>
         </div>
       </div>
 
@@ -2014,27 +2027,28 @@
     }
     typeWriter();
 
-    // ===== MENÚ HAMBURGUESA MÓVIL =====
-    const btnToggle = document.getElementById('menu-toggle');
-    const btnClose = document.getElementById('menu-close');
-    const navMenu = document.getElementById('menu-menu-principal');
+    // ===== MENÚ HAMBURGUESA MÓVIL (v1 — desactivado si header-navbar-v2) =====
+    if (!document.querySelector('.header-navbar-v2')) {
+      const btnToggle = document.getElementById('menu-toggle');
+      const btnClose = document.getElementById('menu-close');
+      const navMenu = document.getElementById('menu-menu-principal');
 
-    if (btnToggle) {
-      btnToggle.addEventListener('click', () => navMenu.classList.add('active'));
-    }
-    if (btnClose) {
-      btnClose.addEventListener('click', () => navMenu.classList.remove('active'));
-    }
+      if (btnToggle) {
+        btnToggle.addEventListener('click', () => navMenu.classList.add('active'));
+      }
+      if (btnClose) {
+        btnClose.addEventListener('click', () => navMenu.classList.remove('active'));
+      }
 
-    // ===== ACORDEÓN SUBMENÚS MÓVIL =====
-    document.querySelectorAll('.menu-item-has-children > a').forEach(link => {
-      link.addEventListener('click', function (e) {
-        if (window.innerWidth < 992) {
-          e.preventDefault();
-          this.parentElement.classList.toggle('sub-open');
-        }
+      document.querySelectorAll('.menu-item-has-children > a').forEach(link => {
+        link.addEventListener('click', function (e) {
+          if (window.innerWidth < 992) {
+            e.preventDefault();
+            this.parentElement.classList.toggle('sub-open');
+          }
+        });
       });
-    });
+    }
 
     // ===== ACORDEÓN OFRECEMOS =====
     const accordionItems = document.querySelectorAll('.accordion-item');
@@ -2093,6 +2107,8 @@
     const yearEl = document.getElementById('footer-year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
   </script>
+  <script src="assets/navbar-v2.js"></script>
+  <script src="assets/login-transition.js"></script>
 
 </body>
 

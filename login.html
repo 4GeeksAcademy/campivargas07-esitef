@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ingresar | ESITEF Online</title>
+  <meta name="description"
+    content="Accede a tu cuenta ESITEF Online. Formaciones, mentorías y recursos para fisioterapeutas y profesionales del movimiento.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;600&family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..700&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      height: 100dvh;
+      overflow: hidden;
+    }
+
+    body.login-screen {
+      font-family: 'Inter', sans-serif;
+      background: #fafafa;
+      position: relative;
+    }
+
+    body.login-screen::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 45%, rgba(227, 32, 58, 0.06) 0%, transparent 70%),
+        #fafafa;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    ul { list-style: none; }
+
+    /* Navbar difuminado — fondo decorativo */
+    body.login-screen header.header-default {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      z-index: 1 !important;
+      filter: blur(10px) !important;
+      opacity: 0.28 !important;
+      pointer-events: none !important;
+      transform: scale(1.02);
+    }
+
+    body.login-screen header.header-default,
+    body.login-screen header.header-default .navbar {
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+    }
+
+    header.header-default * {
+      font-family: "Inconsolata", monospace !important;
+    }
+
+    header.header-default {
+      background: transparent !important;
+      box-shadow: none !important;
+      border: none !important;
+    }
+
+    header.header-default .navbar {
+      max-width: 1200px !important;
+      margin: 30px auto !important;
+      border-radius: 12px !important;
+      background-color: #ffffff !important;
+      box-shadow: 0 6px 30px rgba(0, 0, 0, 0.12) !important;
+      border: 1px solid rgba(0, 0, 0, 0.06) !important;
+      padding: 15px 40px !important;
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+    }
+
+    header.header-default .navbar-brand { margin-right: auto !important; }
+    header.header-default .navbar-brand img { max-height: 40px !important; width: auto !important; }
+
+    header.header-default .navbar-utils {
+      display: flex !important;
+      align-items: center !important;
+      gap: 20px !important;
+      margin-left: 20px !important;
+    }
+
+    header.header-default .navbar-utils a.btn-getstarted {
+      color: white !important;
+      background: #e3203a !important;
+      border: 1px solid #e3203a !important;
+      border-radius: 50px !important;
+      padding: 10px 28px !important;
+      font-size: 15px !important;
+      font-weight: 500 !important;
+    }
+
+    header.header-default .navbar-utils .btn-cart svg>path { fill: #000000 !important; }
+    header.header-default .search-field { display: none !important; }
+
+    @media (min-width: 992px) {
+      header.header-default .navbar-toggler { display: none !important; }
+
+      header.header-default .navbar-nav {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 25px !important;
+      }
+
+      header.header-default .navbar-nav>li>a {
+        color: #000 !important;
+        font-size: 16px !important;
+        font-weight: 500 !important;
+        padding: 10px 0 !important;
+        display: flex !important;
+        align-items: center !important;
+      }
+
+      header.header-default .navbar-nav>li.item-movil,
+      header.header-default .navbar-nav>li.item-movil-entrar,
+      header.header-default .navbar-nav .nav-close { display: none !important; }
+
+      header.header-default .navbar-nav>li.menu-item-has-children>a::after {
+        content: '' !important;
+        display: inline-block !important;
+        width: 18px !important;
+        height: 18px !important;
+        margin-left: 4px !important;
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23000000' d='m12 13.171l4.95-4.95l1.414 1.415L12 16L5.636 9.636L7.05 8.222z'/%3E%3C/svg%3E") !important;
+        background-repeat: no-repeat !important;
+        background-size: contain !important;
+      }
+
+      header.header-default .navbar-nav .sub-menu { display: none !important; }
+    }
+
+    @media (max-width: 991px) {
+      header.header-default .navbar {
+        margin: 15px !important;
+        padding: 15px 20px !important;
+      }
+
+      header.header-default .navbar-utils a.btn-getstarted,
+      header.header-default .navbar-utils .btn-cart { display: none !important; }
+
+      header.header-default .navbar-toggler {
+        display: block !important;
+        width: 40px !important;
+        height: 40px !important;
+        border: none !important;
+        background: transparent !important;
+      }
+
+      header.header-default .navbar-nav { display: none !important; }
+    }
+
+    /* Login — foco nítido, centrado */
+    .login-main {
+      position: fixed;
+      inset: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .login-form {
+      width: 100%;
+      max-width: 380px;
+      text-align: center;
+    }
+
+    .login-form__title {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: clamp(1.85rem, 5vw, 2.5rem);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      color: #111111;
+      margin-bottom: 10px;
+      line-height: 1.15;
+    }
+
+    .login-form__subtitle {
+      font-weight: 300;
+      font-size: 0.95rem;
+      color: #888888;
+      margin-bottom: 36px;
+      letter-spacing: 0.01em;
+    }
+
+    .login-field {
+      margin-bottom: 26px;
+      text-align: left;
+    }
+
+    .login-field label {
+      display: block;
+      font-family: 'Inconsolata', monospace;
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      margin-bottom: 8px;
+      color: #555555;
+    }
+
+    .login-field input {
+      width: 100%;
+      height: 48px;
+      padding: 0 2px;
+      border: none;
+      border-bottom: 1.5px solid #dddddd;
+      border-radius: 0;
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      color: #111111;
+      background: transparent;
+      transition: border-color 0.25s;
+    }
+
+    .login-field input::placeholder {
+      color: #c4c4c4;
+      font-weight: 300;
+    }
+
+    .login-field input:focus {
+      outline: none;
+      border-bottom-color: #e3203a;
+    }
+
+    .login-field--password { position: relative; }
+    .login-field--password input { padding-right: 44px; }
+
+    .login-toggle-pw {
+      position: absolute;
+      right: 0;
+      bottom: 8px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      color: #aaaaaa;
+      font-family: 'Inconsolata', monospace;
+      font-size: 12px;
+      font-weight: 400;
+      padding: 4px;
+      transition: color 0.2s;
+    }
+
+    .login-toggle-pw:hover { color: #111111; }
+
+    .login-submit {
+      width: 100%;
+      height: 50px;
+      margin-top: 8px;
+      border: none;
+      border-radius: 50px;
+      background: #e3203a;
+      color: #ffffff;
+      font-family: 'Inconsolata', monospace;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      cursor: pointer;
+      transition: background 0.25s, transform 0.15s;
+    }
+
+    .login-submit:hover { background: #b3192e; }
+    .login-submit:active { transform: scale(0.98); }
+
+    .login-links {
+      margin-top: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+      justify-content: center;
+      font-size: 0.875rem;
+      font-weight: 300;
+    }
+
+    .login-links a {
+      color: #999999;
+      transition: color 0.2s;
+    }
+
+    .login-links a:hover { color: #e3203a; }
+    .login-links span { color: #dddddd; font-weight: 300; }
+  </style>
+  <link rel="stylesheet" href="assets/navbar-v2.css">
+  <link rel="stylesheet" href="assets/login-transition.css">
+</head>
+
+<body class="login-screen">
+
+  <header class="header-default header-navbar-v2" aria-hidden="true">
+    <div class="navbar-v2-overlay" aria-hidden="true"></div>
+    <nav class="navbar navbar-right full-width">
+
+      <div class="navbar-brand">
+        <a href="https://esitef.com/online/" rel="home" tabindex="-1">
+          <img src="https://esitef.com/online/wp-content/uploads/2026/05/Esitef_logo_icon_preloadeer.png"
+            alt="ESITEF Online">
+        </a>
+      </div>
+
+      <div class="search-field"><form method="get" action="https://esitef.com/online/"><input type="search" name="s"></form></div>
+
+      <button class="navbar-toggler" id="menu-toggle" tabindex="-1" aria-hidden="true">
+        <span class="burger-line" aria-hidden="true"></span>
+        <span class="burger-line" aria-hidden="true"></span>
+      </button>
+
+      <div class="menu-menu-principal-container">
+        <ul id="menu-menu-principal" class="navbar-nav">
+          <li class="menu-item"><a href="https://esitef.com/la-escuela/" tabindex="-1">Escuela</a></li>
+          <li class="menu-item menu-item-has-children"><a href="#" tabindex="-1">Online</a></li>
+          <li class="menu-item menu-item-has-children"><a href="https://esitef.com/online/presenciales/" tabindex="-1">Presenciales</a></li>
+          <li class="menu-item"><a href="https://esitef.com/online/contacto/" tabindex="-1">Contacto</a></li>
+          <li class="menu-item"><a href="https://esitef.com/online/faqs/" tabindex="-1">FAQs</a></li>
+        </ul>
+      </div>
+
+      <div class="navbar-utils">
+        <div class="utils-cart">
+          <a class="cart-contents" href="https://esitef.com/online/cart/" tabindex="-1">
+            <span class="btn-cart">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" height="19" viewBox="0 0 21 19" width="21">
+                <path d="m18.9375 10.832 1.6523-7.31247c.0704-.25781.0235-.49219-.1406-.70312-.164-.21094-.3867-.31641-.668-.31641h-13.81636l-.3164-1.582031c-.04688-.1875-.15235-.339844-.31641-.457031-.14062-.140626-.30469-.210938-.49219-.210938h-3.62109c-.234375 0-.433594.082031-.597656.246094-.164063.164062-.246094.363281-.246094.597656v.5625c0 .23438.082031.43359.246094.59766.164062.16406.363281.24609.597656.24609h2.46094l2.46093 12.0586c-.30468.1875-.55078.4336-.73828.7383-.16406.3047-.24609.6328-.24609.9843 0 .5391.1875.9961.5625 1.3711.39844.3985.86719.5977 1.40625.5977s.99609-.1992 1.37109-.5977c.39844-.375.59766-.8437.59766-1.4062 0-.5391-.19922-.9961-.59766-1.3711h7.38281c-.3984.375-.5977.832-.5977 1.3711 0 .5625.1876 1.0312.5626 1.4062.3984.3985.8671.5977 1.4062.5977s.9961-.1992 1.3711-.5977c.3984-.375.5977-.832.5977-1.3711 0-.375-.1055-.7148-.3165-1.0195-.1875-.3281-.457-.5742-.8085-.7383l.2109-.8789c.0469-.2578-.0117-.4922-.1758-.7031s-.375-.3164-.6328-.3164h-9.45704l-.21094-1.125h10.30078c.1875 0 .3516-.0586.4922-.1758.1641-.1172.2695-.2812.3164-.4922z" />
+              </svg>
+            </span>
+          </a>
+        </div>
+        <div class="utils-btn">
+          <a class="btn-getstarted" href="login.html" tabindex="-1">Ingresar</a>
+        </div>
+      </div>
+
+    </nav>
+  </header>
+
+  <main class="login-main">
+    <div class="login-form">
+      <h1 class="login-form__title">Bienvenid@ de nuevo</h1>
+      <p class="login-form__subtitle">Ingresa con tu usuario y contraseña.</p>
+
+      <form action="https://esitef.com/online/wp-login.php" method="post" novalidate>
+        <input type="hidden" name="redirect_to" value="https://esitef.com/online/dashboard/">
+
+        <div class="login-field">
+          <label for="user_login">Usuario</label>
+          <input type="text" id="user_login" name="log" autocomplete="username"
+            placeholder="Tu email o nombre de usuario" required>
+        </div>
+
+        <div class="login-field login-field--password">
+          <label for="user_pass">Contraseña</label>
+          <input type="password" id="user_pass" name="pwd" autocomplete="current-password"
+            placeholder="••••••••" required>
+          <button type="button" class="login-toggle-pw" aria-label="Mostrar contraseña" data-toggle-password>ver</button>
+        </div>
+
+        <button type="submit" class="login-submit">Entrar</button>
+      </form>
+
+      <nav class="login-links" aria-label="Ayuda con la cuenta">
+        <a href="https://esitef.com/online/wp-login.php?action=lostpassword">¿Olvidaste tu contraseña?</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://esitef.com/online/register/">Registrarte</a>
+      </nav>
+    </div>
+  </main>
+
+  <script>
+    document.querySelector('[data-toggle-password]')?.addEventListener('click', function () {
+      var input = document.getElementById('user_pass');
+      var show = input.type === 'password';
+      input.type = show ? 'text' : 'password';
+      this.textContent = show ? 'ocultar' : 'ver';
+      this.setAttribute('aria-label', show ? 'Ocultar contraseña' : 'Mostrar contraseña');
+    });
+  </script>
+  <script src="assets/login-transition.js"></script>
+
+</body>
+</html>
