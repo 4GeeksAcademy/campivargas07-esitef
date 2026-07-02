@@ -1,3 +1,4 @@
 node_modules/
 .env.deploy
 esitef-minimal/deploy/.env.deploy
+esitef-minimal/deploy/.ssh/

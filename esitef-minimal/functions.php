@@ -6,7 +6,7 @@
  */
 
 if ( ! defined( 'ESITEF_MINIMAL_VERSION' ) ) {
-	define( 'ESITEF_MINIMAL_VERSION', '1.1.0' );
+	define( 'ESITEF_MINIMAL_VERSION', '1.1.1' );
 }
 
 function esitef_minimal_setup() {
@@ -122,7 +122,7 @@ function esitef_minimal_scripts() {
 	wp_enqueue_style( 'esitef-login-transition', $uri . '/assets/css/login-transition.css', array(), $ver );
 
 	if ( is_front_page() ) {
-		wp_enqueue_style( 'esitef-front-page', $uri . '/assets/css/front-page.css', array( 'esitef-header' ), $ver );
+		wp_enqueue_style( 'esitef-front-page', $uri . '/assets/css/front-page.css', array( 'esitef-header', 'esitef-footer' ), $ver );
 		wp_enqueue_script( 'esitef-home-front', $uri . '/assets/js/home-front.js', array(), $ver, true );
 	}
 
@@ -138,6 +138,11 @@ function esitef_minimal_scripts() {
 
 	if ( is_page_template( 'page-templates/page-la-escuela.php' ) ) {
 		wp_enqueue_style( 'esitef-la-escuela', $uri . '/assets/css/pages/la-escuela.css', array( 'esitef-header' ), $ver );
+	}
+
+	if ( is_page_template( 'page-templates/page-presencial.php' ) ) {
+		wp_enqueue_style( 'esitef-presencial', $uri . '/assets/css/pages/presencial.css', array( 'esitef-header' ), $ver );
+		wp_enqueue_script( 'esitef-presencial', $uri . '/assets/js/presencial.js', array(), $ver, true );
 	}
 
 	if ( is_post_type_archive( 'courses' ) || is_page_template( 'page-templates/page-formaciones.php' ) ) {
@@ -172,6 +177,7 @@ function esitef_minimal_cleanup() {
 add_action( 'init', 'esitef_minimal_cleanup' );
 
 require get_template_directory() . '/inc/activation.php';
+require get_template_directory() . '/inc/compat-elementor.php';
 
 /**
  * Staging banner (ponytail: only when STAGING constant or URL contains staging).

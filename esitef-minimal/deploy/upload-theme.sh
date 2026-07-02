@@ -1,26 +1,52 @@
 #!/usr/bin/env bash
-# Sube esitef-minimal al servidor staging vía rsync/scp
+# Sincroniza esitef-minimal → staging SiteGround (rsync por SSH/SFTP)
 set -euo pipefail
+
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 ENV_FILE="$(dirname "$0")/.env.deploy"
 
 if [[ ! -f "$ENV_FILE" ]]; then
-  echo "Crea $ENV_FILE desde .env.deploy.example"
+  echo "❌ Falta $ENV_FILE"
+  echo "   cp deploy/.env.deploy.example deploy/.env.deploy"
   exit 1
 fi
 # shellcheck disable=SC1090
 source "$ENV_FILE"
 
-if [[ -z "${SFTP_HOST:-}" || -z "${REMOTE_THEME_PATH:-}" ]]; then
-  echo "SFTP_HOST y REMOTE_THEME_PATH requeridos en .env.deploy"
-  exit 1
+for var in SFTP_HOST SFTP_USER REMOTE_THEME_PATH; do
+  if [[ -z "${!var:-}" || "${!var}" == CHANGE_ME* ]]; then
+    echo "❌ Completa $var en .env.deploy"
+    exit 1
+  fi
+done
+
+PORT="${SFTP_PORT:-18765}"
+SSH_CMD=(ssh -p "$PORT" -o StrictHostKeyChecking=accept-new)
+if [[ -n "${SSH_KEY_PATH:-}" && -f "$SSH_KEY_PATH" ]]; then
+  SSH_CMD+=(-i "$SSH_KEY_PATH")
+elif [[ -n "${SFTP_PASSWORD:-}" ]]; then
+  # ponytail: SSH_ASKPASS evita sshpass; requiere setsid sin TTY
+  ASKPASS_SCRIPT="$(mktemp)"
+  cat >"$ASKPASS_SCRIPT" <<'EOF'
+#!/bin/sh
+exec printf '%s' "$SFTP_PASSWORD"
+EOF
+  chmod 700 "$ASKPASS_SCRIPT"
+  trap 'rm -f "$ASKPASS_SCRIPT"' EXIT
+  export SSH_ASKPASS="$ASKPASS_SCRIPT" SSH_ASKPASS_REQUIRE=force DISPLAY=:0
+  SSH_CMD=(setsid "${SSH_CMD[@]}")
 fi
 
-echo "Subiendo tema a ${SFTP_USER}@${SFTP_HOST}:${REMOTE_THEME_PATH}"
+echo "→ Subiendo tema a ${SFTP_USER}@${SFTP_HOST}:${REMOTE_THEME_PATH}"
+echo "  (puerto ${PORT})"
+
 rsync -avz --delete \
-  -e "ssh -p ${SFTP_PORT:-22}" \
+  -e "${SSH_CMD[*]}" \
   --exclude 'deploy/.env.deploy' \
   --exclude '.git' \
+  --exclude '.DS_Store' \
   "$ROOT/" "${SFTP_USER}@${SFTP_HOST}:${REMOTE_THEME_PATH}/"
 
-echo "Listo. Activa el tema en ${WP_ADMIN_URL:-staging}"
+echo "✅ Tema sincronizado."
+echo "   Staging: ${STAGING_URL:-https://staging3.esitef.com/online}"
+echo "   Tip: vacía caché en Site Tools → Speed → Caching"

@@ -1,0 +1,38 @@
+# Tras activar el tema en staging
+
+## Estado verificado (staging3.esitef.com/online)
+
+| URL | Estado |
+|-----|--------|
+| `/` (home) | OK — hero, accordion, blog |
+| `/ingresar/` | OK — login/registro |
+| `/mentorias/` | OK |
+| `/la-escuela/` | **Pendiente** — sigue con plantilla Elementor |
+
+## 1. La Escuela (1 minuto)
+
+**Páginas → La escuela → Plantilla** → **La Escuela** → Actualizar
+
+O reactivar el tema: cambiar a otro tema y volver a **ESITEF Minimal** (el `activation.php` actualizado asigna la plantilla sola).
+
+## 2. Lectura (si la home no fuera estática)
+
+**Ajustes → Lectura** → Página estática → **Inicio** (slug `inicio`)
+
+## 3. Menú principal
+
+**Apariencia → Menús** → asignar a **Primary**:
+
+- Escuela → `/la-escuela/`
+- Online (sub): Formaciones, Libros, Artículos, Mentorías
+- Presenciales (sub): países
+- Contacto, FAQs
+- Ingresar → enlace a `/ingresar/` (botón del navbar ya apunta ahí)
+
+## 4. Subir fix de activación (opcional)
+
+Si reactivas el tema, sube de nuevo `esitef-minimal.zip` con el `inc/activation.php` actualizado.
+
+## 5. QA
+
+Ver `QA-CHECKLIST.md` antes de Push to Live.

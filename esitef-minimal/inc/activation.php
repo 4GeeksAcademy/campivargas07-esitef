@@ -13,7 +13,9 @@ function esitef_minimal_activation_setup() {
 	);
 
 	foreach ( $pages as $slug => $data ) {
-		if ( get_page_by_path( $slug ) ) {
+		$page = get_page_by_path( $slug );
+		if ( $page ) {
+			update_post_meta( $page->ID, '_wp_page_template', $data['template'] );
 			continue;
 		}
 		$id = wp_insert_post(
@@ -30,7 +32,10 @@ function esitef_minimal_activation_setup() {
 	}
 
 	$home = get_page_by_path( 'inicio' );
-	if ( ! $home ) {
+	if ( $home ) {
+		update_option( 'page_on_front', $home->ID );
+		update_option( 'show_on_front', 'page' );
+	} elseif ( ! get_page_by_path( 'inicio' ) ) {
 		$home_id = wp_insert_post(
 			array(
 				'post_title'  => 'Inicio',
