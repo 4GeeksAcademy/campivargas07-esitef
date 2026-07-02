@@ -3,7 +3,7 @@ Theme Name: ESITEF Minimal
 Theme URI: https://esitef.com
 Author: ESITEF
 Description: Tema minimalista a medida para ESITEF Online, integrado con WooCommerce y Tutor LMS.
-Version: 1.0.0
+Version: 1.1.0
 Text Domain: esitef-minimal
 */
 
@@ -16,8 +16,8 @@ Text Domain: esitef-minimal
     --color-border: #e5e5e5;
     
     /* Brand Colors (ESITEF Blues/Oranges if any, fallback to minimal) */
-    --color-primary: #06adef; /* Extracted from current site */
-    --color-primary-hover: #059bd6;
+    --color-primary: #e3203a;
+    --color-primary-hover: #b3192e;
     
     /* Typography */
     --font-heading: 'Bricolage Grotesque', sans-serif;

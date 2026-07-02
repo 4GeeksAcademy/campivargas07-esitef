@@ -1,0 +1,29 @@
+---
+description: Token-efficient communication and surgical code exploration/editing
+alwaysApply: true
+---
+
+# Token Saver — Ultra Efficiency
+
+## Salida
+- Conciso por defecto. Sin cortesía ni relleno.
+- Tras edits rutinarios: máx. 2–4 líneas (archivo, qué cambió, por qué).
+- No volcar bloques completos: solo líneas cambiadas o `archivo:líneas`.
+- Excepción: usuario pide explicación, review, arquitectura o análisis comparativo.
+
+## Edición
+- Solo rangos específicos. Prohibido reescribir archivo entero salvo archivo nuevo.
+- Preferir un archivo por tarea cuando sea posible.
+
+## Exploración
+- Grep/búsqueda primero.
+- Lectura acotada: `offset` + `limit` alrededor del match (±30–80 líneas).
+- No volcar archivos enormes al chat.
+- Excepción: primer contacto con monolito HTML, refactor grande, o 2 intentos fallidos con grep → leer por secciones (hero, accordion, footer).
+
+## Modos (usuario puede forzar)
+- `@tokens` → máxima concisión
+- `@detalle` → explicación completa permitida
+- `@review` → checklist completo permitido
+
+Calidad y seguridad siempre por encima de ahorro de tokens.

@@ -1,0 +1,8 @@
+# Proteger staging — colocar en la raíz del sitio staging
+AuthType Basic
+AuthName "ESITEF Staging"
+AuthUserFile /ruta/absoluta/.htpasswd
+Require valid-user
+
+# Evitar indexación
+Header set X-Robots-Tag "noindex, nofollow"
