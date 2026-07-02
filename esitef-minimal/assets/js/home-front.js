@@ -36,32 +36,6 @@
 
   if (elAnimado) typeWriter();
 
-  if (!document.querySelector('.header-navbar-v2')) {
-    var btnToggle = document.getElementById('menu-toggle');
-    var btnClose = document.getElementById('menu-close');
-    var navMenu = document.getElementById('menu-menu-principal');
-
-    if (btnToggle && navMenu) {
-      btnToggle.addEventListener('click', function () {
-        navMenu.classList.add('active');
-      });
-    }
-    if (btnClose && navMenu) {
-      btnClose.addEventListener('click', function () {
-        navMenu.classList.remove('active');
-      });
-    }
-
-    document.querySelectorAll('.menu-item-has-children > a').forEach(function (link) {
-      link.addEventListener('click', function (e) {
-        if (window.innerWidth < 992) {
-          e.preventDefault();
-          link.parentElement.classList.toggle('sub-open');
-        }
-      });
-    });
-  }
-
   var accordionItems = document.querySelectorAll('.accordion-item');
   accordionItems.forEach(function (item) {
     item.addEventListener('mouseenter', function () {

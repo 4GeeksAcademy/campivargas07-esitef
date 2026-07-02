@@ -1,35 +1,3 @@
-/* =====================================================
-       RESET BÁSICO
-       ===================================================== */
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #fff;
-      overflow-x: hidden;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    ul {
-      list-style: none;
-    }
-
-    /* =====================================================
        FORMACIONES ONLINE
        ===================================================== */
     .formaciones-section {

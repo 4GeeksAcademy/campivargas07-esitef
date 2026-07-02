@@ -6,7 +6,7 @@
  */
 
 if ( ! defined( 'ESITEF_MINIMAL_VERSION' ) ) {
-	define( 'ESITEF_MINIMAL_VERSION', '1.1.1' );
+	define( 'ESITEF_MINIMAL_VERSION', '1.1.3' );
 }
 
 function esitef_minimal_setup() {
@@ -83,9 +83,11 @@ function esitef_get_dashboard_url() {
  * Replace hardcoded prototype URLs in extracted HTML.
  */
 function esitef_filter_prototype_html( $html ) {
+	$base = untrailingslashit( home_url() );
 	$replacements = array(
-		'https://esitef.com/online' => untrailingslashit( home_url() ),
-		'login.html'                => wp_make_link_relative( esitef_get_login_url() ),
+		'https://esitef.com/online'  => $base,
+		'https://esitef.com/formaciones/' => $base . '/courses/',
+		'login.html'                 => wp_make_link_relative( esitef_get_login_url() ),
 	);
 	return str_replace( array_keys( $replacements ), array_values( $replacements ), $html );
 }
@@ -96,6 +98,15 @@ function esitef_filter_prototype_html( $html ) {
 function esitef_body_classes( $classes ) {
 	if ( is_page_template( 'page-templates/page-login.php' ) ) {
 		$classes[] = 'login-screen';
+	}
+	if ( is_page_template( 'page-templates/page-descarga-libro.php' ) ) {
+		$classes[] = 'descarga-libro-screen';
+	}
+	if ( is_page_template( 'page-templates/page-libros.php' ) ) {
+		$classes[] = 'libros-screen';
+	}
+	if ( is_page_template( 'page-templates/page-articulos.php' ) ) {
+		$classes[] = 'articulos-screen';
 	}
 	return $classes;
 }
@@ -117,7 +128,6 @@ function esitef_minimal_scripts() {
 
 	wp_enqueue_style( 'esitef-minimal-style', get_stylesheet_uri(), array( 'esitef-fonts' ), $ver );
 	wp_enqueue_style( 'esitef-header', $uri . '/assets/css/header.css', array( 'esitef-minimal-style' ), $ver );
-	wp_enqueue_style( 'esitef-navbar-v2', $uri . '/assets/css/navbar-v2.css', array( 'esitef-header' ), $ver );
 	wp_enqueue_style( 'esitef-footer', $uri . '/assets/css/footer.css', array( 'esitef-minimal-style' ), $ver );
 	wp_enqueue_style( 'esitef-login-transition', $uri . '/assets/css/login-transition.css', array(), $ver );
 
@@ -127,7 +137,7 @@ function esitef_minimal_scripts() {
 	}
 
 	if ( is_page_template( 'page-templates/page-login.php' ) ) {
-		wp_enqueue_style( 'esitef-auth', $uri . '/assets/css/pages/auth.css', array( 'esitef-header' ), $ver );
+		wp_enqueue_style( 'esitef-auth', $uri . '/assets/css/pages/auth.css', array( 'esitef-header', 'esitef-navbar-v2' ), $ver );
 		wp_enqueue_script( 'esitef-auth', $uri . '/assets/js/auth.js', array(), $ver, true );
 	}
 
@@ -149,6 +159,21 @@ function esitef_minimal_scripts() {
 		wp_enqueue_style( 'esitef-formaciones', $uri . '/assets/css/pages/formaciones.css', array( 'esitef-header' ), $ver );
 	}
 
+	if ( is_page_template( 'page-templates/page-libros.php' ) ) {
+		wp_enqueue_style( 'esitef-libros', $uri . '/assets/css/pages/libros.css', array( 'esitef-header' ), $ver );
+	}
+
+	if ( is_page_template( 'page-templates/page-articulos.php' ) ) {
+		wp_enqueue_style( 'esitef-articulos', $uri . '/assets/css/pages/articulos.css', array( 'esitef-header' ), $ver );
+	}
+
+	if ( is_page_template( 'page-templates/page-descarga-libro.php' ) ) {
+		wp_enqueue_style( 'esitef-descarga-libro', $uri . '/assets/css/pages/descarga-libro.css', array( 'esitef-header' ), $ver );
+		wp_enqueue_script( 'esitef-descarga-libro', $uri . '/assets/js/descarga-libro.js', array(), $ver, true );
+	}
+
+	// navbar-v2 al final — única fuente de estilos mobile
+	wp_enqueue_style( 'esitef-navbar-v2', $uri . '/assets/css/navbar-v2.css', array( 'esitef-header' ), $ver );
 	wp_enqueue_script( 'esitef-navbar-v2', $uri . '/assets/js/navbar-v2.js', array(), $ver, true );
 	wp_enqueue_script( 'esitef-login-transition', $uri . '/assets/js/login-transition.js', array(), $ver, true );
 }
@@ -177,6 +202,8 @@ function esitef_minimal_cleanup() {
 add_action( 'init', 'esitef_minimal_cleanup' );
 
 require get_template_directory() . '/inc/activation.php';
+require get_template_directory() . '/inc/libros.php';
+require get_template_directory() . '/inc/articulos.php';
 require get_template_directory() . '/inc/compat-elementor.php';
 
 /**

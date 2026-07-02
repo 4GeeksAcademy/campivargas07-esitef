@@ -9,7 +9,14 @@ $login_action    = wp_login_url();
 $register_action = site_url( 'wp-login.php?action=register' );
 $lost_password   = wp_lostpassword_url();
 $redirect        = esitef_get_dashboard_url();
+$close_url       = wp_get_referer() ? wp_get_referer() : home_url( '/' );
 ?>
+<button type="button" class="login-close" id="login-close"
+  aria-label="<? esc_attr_e( 'Cerrar', 'esitef-minimal' ); ?>"
+  data-fallback="<?php echo esc_url( $close_url ); ?>">
+  <span class="login-close__line" aria-hidden="true"></span>
+  <span class="login-close__line" aria-hidden="true"></span>
+</button>
 <main class="login-main">
   <div class="login-form auth-panels">
 

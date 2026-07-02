@@ -24,7 +24,20 @@ PORT="${SFTP_PORT:-18765}"
 SSH_CMD=(ssh -p "$PORT" -o StrictHostKeyChecking=accept-new)
 if [[ -n "${SSH_KEY_PATH:-}" && -f "$SSH_KEY_PATH" ]]; then
   SSH_CMD+=(-i "$SSH_KEY_PATH")
+  if [[ -n "${SSH_KEY_PASSPHRASE:-}" ]]; then
+    export SSH_KEY_PASSPHRASE
+    ASKPASS_SCRIPT="$(mktemp)"
+    cat >"$ASKPASS_SCRIPT" <<'EOF'
+#!/bin/sh
+exec printf '%s' "$SSH_KEY_PASSPHRASE"
+EOF
+    chmod 700 "$ASKPASS_SCRIPT"
+    trap 'rm -f "$ASKPASS_SCRIPT"' EXIT
+    export SSH_ASKPASS="$ASKPASS_SCRIPT" SSH_ASKPASS_REQUIRE=force DISPLAY=:0
+    SSH_CMD=(setsid "${SSH_CMD[@]}")
+  fi
 elif [[ -n "${SFTP_PASSWORD:-}" ]]; then
+  export SFTP_PASSWORD
   # ponytail: SSH_ASKPASS evita sshpass; requiere setsid sin TTY
   ASKPASS_SCRIPT="$(mktemp)"
   cat >"$ASKPASS_SCRIPT" <<'EOF'
@@ -43,6 +56,7 @@ echo "  (puerto ${PORT})"
 rsync -avz --delete \
   -e "${SSH_CMD[*]}" \
   --exclude 'deploy/.env.deploy' \
+  --exclude 'deploy/.ssh/' \
   --exclude '.git' \
   --exclude '.DS_Store' \
   "$ROOT/" "${SFTP_USER}@${SFTP_HOST}:${REMOTE_THEME_PATH}/"

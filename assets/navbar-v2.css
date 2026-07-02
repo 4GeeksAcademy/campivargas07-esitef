@@ -4,7 +4,7 @@
    Desktop: sin cambios (hereda v1)
    ===================================================== */
 
-header.header-navbar-v2 .nav-mobile-socials {
+header.header-default.header-navbar-v2 .nav-mobile-socials {
   display: none !important;
 }
 
@@ -18,7 +18,7 @@ html.nav-v2-locked body {
 @media (max-width: 991px) {
 
   /* Ingresar — solo texto en barra cerrada */
-  header.header-navbar-v2 .navbar-utils {
+  header.header-default.header-navbar-v2 .navbar-utils {
     display: flex !important;
     align-items: center !important;
     gap: 16px !important;
@@ -26,12 +26,12 @@ html.nav-v2-locked body {
     margin: 0 !important;
   }
 
-  header.header-navbar-v2 .navbar-utils .utils-cart,
-  header.header-navbar-v2 .navbar-utils .btn-cart {
+  header.header-default.header-navbar-v2 .navbar-utils .utils-cart,
+  header.header-default.header-navbar-v2 .navbar-utils .btn-cart {
     display: none !important;
   }
 
-  header.header-navbar-v2 .navbar-utils a.btn-getstarted {
+  header.header-default.header-navbar-v2 .navbar-utils a.btn-getstarted {
     display: inline-flex !important;
     background: transparent !important;
     border: none !important;
@@ -44,13 +44,13 @@ html.nav-v2-locked body {
     white-space: nowrap !important;
   }
 
-  header.header-navbar-v2 .navbar-utils a.btn-getstarted:hover {
+  header.header-default.header-navbar-v2 .navbar-utils a.btn-getstarted:hover {
     background: transparent !important;
     color: #666666 !important;
   }
 
   /* Overlay oscuro detrás del panel */
-  header.header-navbar-v2 .navbar-v2-overlay {
+  header.header-default.header-navbar-v2 .navbar-v2-overlay {
     position: fixed;
     inset: 0;
     z-index: 999998;
@@ -60,13 +60,13 @@ html.nav-v2-locked body {
     transition: opacity 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
   }
 
-  header.header-navbar-v2.menu-open .navbar-v2-overlay {
+  header.header-default.header-navbar-v2.menu-open .navbar-v2-overlay {
     opacity: 1;
     pointer-events: auto;
   }
 
   /* Barra superior fija al abrir — logo + ingresar + X */
-  header.header-navbar-v2.menu-open .navbar {
+  header.header-default.header-navbar-v2.menu-open .navbar {
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
@@ -84,26 +84,26 @@ html.nav-v2-locked body {
   }
 
   /* Logo negro — mismo asset y posición, solo en menú móvil abierto */
-  header.header-navbar-v2.menu-open .navbar-brand {
+  header.header-default.header-navbar-v2.menu-open .navbar-brand {
     display: flex !important;
     align-items: center !important;
     z-index: 1000002 !important;
     margin-right: auto !important;
   }
 
-  header.header-navbar-v2.menu-open .navbar-brand img {
+  header.header-default.header-navbar-v2.menu-open .navbar-brand img {
     max-height: 40px !important;
     width: auto !important;
     filter: brightness(0) !important;
   }
 
   /* Ocultar Ingresar de barra cuando el menú está abierto (ya está en la lista) */
-  header.header-navbar-v2.menu-open .navbar-utils {
+  header.header-default.header-navbar-v2.menu-open .navbar-utils {
     display: none !important;
   }
 
   /* Panel debajo de la barra fija */
-  header.header-navbar-v2 .menu-menu-principal-container {
+  header.header-default.header-navbar-v2 .menu-menu-principal-container {
     position: fixed !important;
     left: 0 !important;
     right: 0 !important;
@@ -124,14 +124,14 @@ html.nav-v2-locked body {
     box-shadow: none !important;
   }
 
-  header.header-navbar-v2.menu-open .menu-menu-principal-container {
+  header.header-default.header-navbar-v2.menu-open .menu-menu-principal-container {
     height: 100dvh !important;
     padding-top: 72px !important;
     box-sizing: border-box !important;
   }
 
   /* Lista — solo esta zona hace scroll */
-  header.header-navbar-v2 .navbar-nav {
+  header.header-default.header-navbar-v2 .navbar-nav {
     position: relative !important;
     top: auto !important;
     left: auto !important;
@@ -161,18 +161,13 @@ html.nav-v2-locked body {
     box-sizing: border-box !important;
   }
 
-  header.header-navbar-v2 .navbar-nav.active {
+  header.header-default.header-navbar-v2 .navbar-nav.active {
     opacity: 1 !important;
     visibility: visible !important;
     pointer-events: auto !important;
   }
 
-  header.header-navbar-v2 .navbar-nav .nav-close {
-    display: none !important;
-  }
-
-  /* Ítems */
-  header.header-navbar-v2 .navbar-nav > li {
+  header.header-default.header-navbar-v2 .navbar-nav > li {
     width: 100% !important;
     max-width: 100% !important;
     text-align: left !important;
@@ -187,30 +182,30 @@ html.nav-v2-locked body {
     transition-delay: calc(0.035s * var(--nav-i, 0));
   }
 
-  header.header-navbar-v2.menu-open .navbar-nav > li {
+  header.header-default.header-navbar-v2.menu-open .navbar-nav > li {
     opacity: 1;
     transform: translateY(0);
   }
 
-  header.header-navbar-v2.menu-open .navbar-nav:has(.sub-open) > li:not(.sub-open):not(.nav-mobile-socials) {
+  header.header-default.header-navbar-v2.menu-open .navbar-nav:has(.sub-open) > li:not(.sub-open):not(.nav-mobile-socials) {
     opacity: 1 !important;
   }
 
-  header.header-navbar-v2.menu-open .navbar-nav:has(.sub-open) > li:not(.sub-open):not(.nav-mobile-socials) > a {
+  header.header-default.header-navbar-v2.menu-open .navbar-nav:has(.sub-open) > li:not(.sub-open):not(.nav-mobile-socials) > a {
     color: #c8c8c8 !important;
     transition: color 0.35s ease !important;
   }
 
-  header.header-navbar-v2.menu-open .navbar-nav > li.sub-open {
+  header.header-default.header-navbar-v2.menu-open .navbar-nav > li.sub-open {
     opacity: 1 !important;
   }
 
-  header.header-navbar-v2.menu-open .navbar-nav > li.sub-open > a {
+  header.header-default.header-navbar-v2.menu-open .navbar-nav > li.sub-open > a {
     color: #000000 !important;
   }
 
   /* ponytail: -10% sobre clamp anterior (22/5.5vw/28 → 20/5vw/25) */
-  header.header-navbar-v2 .navbar-nav > li > a {
+  header.header-default.header-navbar-v2 .navbar-nav > li > a {
     font-size: clamp(20px, 5vw, 25px) !important;
     font-weight: 500 !important;
     padding: 18px 4px !important;
@@ -223,19 +218,44 @@ html.nav-v2-locked body {
     box-sizing: border-box !important;
   }
 
-  header.header-navbar-v2 .navbar-nav > li.menu-item-has-children > a::after {
+  header.header-default.header-navbar-v2 .navbar-nav > li.menu-item-has-children > a > i,
+  header.header-default.header-navbar-v2 .navbar-nav > li.menu-item-has-children > a > span.tutor-icon-angle-down,
+  header.header-default.header-navbar-v2 .navbar-nav > li.menu-item-has-children > a > span[class*="icon"],
+  header.header-default.header-navbar-v2 .navbar-nav > li.menu-item-has-children > a > span[class*="arrow"],
+  header.header-default.header-navbar-v2 .navbar-nav > li.menu-item-has-children > a > svg,
+  header.header-default.header-navbar-v2 .navbar-nav > li.menu-item-has-children > a > .dropdown-toggle-icon {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
+  }
+
+  header.header-default.header-navbar-v2 .navbar-nav > li.menu-item-has-children > a::before {
+    content: none !important;
+    display: none !important;
+  }
+
+  header.header-default.header-navbar-v2 .navbar-nav > li.menu-item-has-children > a::after {
+    content: '' !important;
+    display: inline-block !important;
     width: 20px !important;
     height: 20px !important;
     min-width: 20px !important;
     margin-left: auto !important;
     flex-shrink: 0 !important;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23000000' d='m12 13.171l4.95-4.95l1.414 1.415L12 16L5.636 9.636L7.05 8.222z'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: contain !important;
+    border: none !important;
+    transition: transform 0.45s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
   }
 
-  header.header-navbar-v2 .navbar-nav > li.menu-item-has-children.sub-open > a::after {
+  header.header-default.header-navbar-v2 .navbar-nav > li.menu-item-has-children.sub-open > a::after {
     transform: rotate(180deg) !important;
   }
 
-  header.header-navbar-v2 .navbar-nav .sub-menu {
+  header.header-default.header-navbar-v2 .navbar-nav .sub-menu {
     position: static !important;
     box-shadow: none !important;
     background: transparent !important;
@@ -257,19 +277,19 @@ html.nav-v2-locked body {
     pointer-events: auto !important;
   }
 
-  header.header-navbar-v2 .navbar-nav > li.menu-item-has-children.sub-open > .sub-menu {
+  header.header-default.header-navbar-v2 .navbar-nav > li.menu-item-has-children.sub-open > .sub-menu {
     max-height: 480px !important;
     padding: 0 0 12px 0 !important;
   }
 
-  header.header-navbar-v2 .navbar-nav .sub-menu li {
+  header.header-default.header-navbar-v2 .navbar-nav .sub-menu li {
     width: 100% !important;
     text-align: left !important;
     border-bottom: none !important;
     list-style: none !important;
   }
 
-  header.header-navbar-v2 .navbar-nav .sub-menu li a {
+  header.header-default.header-navbar-v2 .navbar-nav .sub-menu li a {
     font-size: clamp(20px, 5vw, 25px) !important;
     color: #000000 !important;
     text-align: left !important;
@@ -280,23 +300,23 @@ html.nav-v2-locked body {
     transition: color 0.2s ease !important;
   }
 
-  header.header-navbar-v2 .navbar-nav > li.menu-item-has-children.sub-open .sub-menu li a {
+  header.header-default.header-navbar-v2 .navbar-nav > li.menu-item-has-children.sub-open .sub-menu li a {
     color: #000000 !important;
     opacity: 1 !important;
   }
 
-  header.header-navbar-v2 .navbar-nav .sub-menu li a:hover {
+  header.header-default.header-navbar-v2 .navbar-nav .sub-menu li a:hover {
     color: #e3203a !important;
   }
 
   /* Ingresar en lista — texto plano como el resto */
-  header.header-navbar-v2 .navbar-nav > li.item-movil-entrar {
+  header.header-default.header-navbar-v2 .navbar-nav > li.item-movil-entrar {
     border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
     padding: 0 !important;
     order: 0 !important;
   }
 
-  header.header-navbar-v2 .navbar-nav > li.item-movil-entrar > a {
+  header.header-default.header-navbar-v2 .navbar-nav > li.item-movil-entrar > a {
     background: transparent !important;
     color: #000000 !important;
     border-radius: 0 !important;
@@ -309,12 +329,12 @@ html.nav-v2-locked body {
     margin: 0 !important;
   }
 
-  header.header-navbar-v2 .navbar-nav > li.item-movil {
+  header.header-default.header-navbar-v2 .navbar-nav > li.item-movil {
     border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
   }
 
   /* Redes sociales — abajo, alineados a la izquierda con el menú */
-  header.header-navbar-v2 .navbar-nav > li.nav-mobile-socials {
+  header.header-default.header-navbar-v2 .navbar-nav > li.nav-mobile-socials {
     margin-top: auto !important;
     padding-top: 20px !important;
     padding-bottom: 8px !important;
@@ -332,12 +352,12 @@ html.nav-v2-locked body {
     opacity: 0;
   }
 
-  header.header-navbar-v2.menu-open .navbar-nav > li.nav-mobile-socials {
+  header.header-default.header-navbar-v2.menu-open .navbar-nav > li.nav-mobile-socials {
     opacity: 1 !important;
   }
 
   /* Anula width:100% del estilo general de enlaces del menú */
-  header.header-navbar-v2 .navbar-nav > li.nav-mobile-socials > a {
+  header.header-default.header-navbar-v2 .navbar-nav > li.nav-mobile-socials > a {
     width: auto !important;
     min-width: 0 !important;
     max-width: none !important;
@@ -354,14 +374,14 @@ html.nav-v2-locked body {
     transition: color 0.2s ease, opacity 0.2s ease !important;
   }
 
-  header.header-navbar-v2 .nav-mobile-socials a:hover {
+  header.header-default.header-navbar-v2 .nav-mobile-socials a:hover {
     background: transparent !important;
     border: none !important;
     color: #e3203a !important;
     opacity: 0.85 !important;
   }
 
-  header.header-navbar-v2 .nav-mobile-socials svg {
+  header.header-default.header-navbar-v2 .nav-mobile-socials svg {
     width: 22px !important;
     height: 22px !important;
     fill: currentColor !important;
@@ -369,11 +389,11 @@ html.nav-v2-locked body {
   }
 
   /* Burger / X — sin recuadro */
-  header.header-navbar-v2 .navbar-toggler > * {
+  header.header-default.header-navbar-v2 .navbar-toggler > * {
     display: block !important;
   }
 
-  header.header-navbar-v2 .navbar-toggler {
+  header.header-default.header-navbar-v2 .navbar-toggler {
     background-image: none !important;
     background-color: transparent !important;
     display: flex !important;
@@ -396,14 +416,14 @@ html.nav-v2-locked body {
     order: 99 !important;
   }
 
-  header.header-navbar-v2 .navbar-toggler:hover,
-  header.header-navbar-v2 .navbar-toggler:focus {
+  header.header-default.header-navbar-v2 .navbar-toggler:hover,
+  header.header-default.header-navbar-v2 .navbar-toggler:focus {
     background: transparent !important;
     box-shadow: none !important;
   }
 
-  header.header-navbar-v2 .navbar-toggler .burger-line,
-  header.header-navbar-v2 .navbar-toggler > span {
+  header.header-default.header-navbar-v2 .navbar-toggler .burger-line,
+  header.header-default.header-navbar-v2 .navbar-toggler > span {
     display: block !important;
     width: 22px !important;
     height: 1.5px !important;
@@ -413,11 +433,11 @@ html.nav-v2-locked body {
     flex-shrink: 0 !important;
   }
 
-  header.header-navbar-v2.menu-open .navbar-toggler .burger-line:first-child {
+  header.header-default.header-navbar-v2.menu-open .navbar-toggler .burger-line:first-child {
     transform: translateY(4.25px) rotate(45deg) !important;
   }
 
-  header.header-navbar-v2.menu-open .navbar-toggler .burger-line:last-child {
+  header.header-default.header-navbar-v2.menu-open .navbar-toggler .burger-line:last-child {
     transform: translateY(-4.25px) rotate(-45deg) !important;
   }
 }

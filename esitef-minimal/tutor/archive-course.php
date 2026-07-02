@@ -18,7 +18,7 @@ if ( $course_filter && count( $supported_filters ) ) {
   <section class="formaciones-section" aria-label="<? esc_attr_e( 'Nuestras Formaciones Online', 'esitef-minimal' ); ?>">
     <div class="formaciones-inner">
       <h1 class="formaciones-titulo"><? esc_html_e( 'Formaciones Online', 'esitef-minimal' ); ?></h1>
-      <p class="formaciones-subtitulo"><? esc_html_e( 'Explora nuestras experiencias formativas desde dónde y cuando quieras.', 'esitef-minimal' ); ?></p>
+      <p class="formaciones-desc"><? esc_html_e( 'Explora nuestras experiencias formativas desde dónde y cuando quieras.', 'esitef-minimal' ); ?></p>
 
       <div class="<?php tutor_container_classes(); ?> formaciones-grid-wrap">
         <?php tutor_load_template( 'archive-course-loop' ); ?>

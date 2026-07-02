@@ -171,10 +171,23 @@
 
         <div class="inversion-card">
           <div class="inversion-header">
-            <h3>Inversión del Programa</h3>
+            <h3>¿Cuánto cuesta?</h3>
           </div>
 
-          <div class="inversion-payments" style="margin-bottom: 40px;">
+          
+
+          <div class="inversion-body">
+            <p>Este tema siempre es difícil de estipular en algo tan abierto como esto. Por el conjunto de la lectura y
+              análisis de tu caso + las 3 sesiones individuales de hora y media cada una + todas las estrategias y
+              herramientas a implementar + que tengas las grabaciones de las sesiones para siempre, tiene un coste de
+              <b>695 euros</b>.</p>
+            <p>No es que sienta que tenga que explicar el por qué de esta cantidad pero considero que todo lo que te vas
+              a llevar y te va a sumar este proceso es de muy alto valor. Supondrá un cambio y una mejora en tu vida
+              profesional desde que lo hagamos para siempre Y el coste económico sólo algo puntual.</p>
+            <p>Voy a poner toda la carne en asador. Todo mi conocimiento, experiencia, creatividad y 25 años de
+              vivencias profesionales a tu disposición.</p>
+            <p>Es claro que quizás esta suma no es para todo el mundo. Pero lo que vale, cuesta.</p>
+            <div class="inversion-payments" style="margin-bottom: 40px;">
             <div class="payment-schedule">
               <h4>¿Cuándo se paga?</h4>
               <ul>
@@ -196,18 +209,6 @@
               </ul>
             </div>
           </div>
-
-          <div class="inversion-body">
-            <p>Este tema siempre es difícil de estipular en algo tan abierto como esto. Por el conjunto de la lectura y
-              análisis de tu caso + las 3 sesiones individuales de hora y media cada una + todas las estrategias y
-              herramientas a implementar + que tengas las grabaciones de las sesiones para siempre, tiene un coste de
-              695 euros.</p>
-            <p>No es que sienta que tenga que explicar el por qué de esta cantidad pero considero que todo lo que te vas
-              a llevar y te va a sumar este proceso es de muy alto valor. Supondrá un cambio y una mejora en tu vida
-              profesional desde que lo hagamos para siempre Y el coste económico sólo algo puntual.</p>
-            <p>Voy a poner toda la carne en asador. Todo mi conocimiento, experiencia, creatividad y 25 años de
-              vivencias profesionales a tu disposición.</p>
-            <p>Es claro que quizás esta suma no es para todo el mundo. Pero lo que vale, cuesta.</p>
 
             <div class="inversion-highlight">
               <strong>¿Necesitas más sesiones?</strong><br>
@@ -240,7 +241,7 @@
 
     <!-- TESTIMONIOS -->
     <section class="section-padding">
-      <h2 class="section-title">Lo que dicen los profesionales</h2>
+      <h2 class="section-title">Testimonios de mentorizados</h2>
       <div class="testimonios-grid">
 
         <div class="testimonio-card">

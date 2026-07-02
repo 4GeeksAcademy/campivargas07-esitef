@@ -5,7 +5,6 @@
 
   const MQ = window.matchMedia('(max-width: 991px)');
   const btnToggle = document.getElementById('menu-toggle');
-  const btnClose = document.getElementById('menu-close');
   const navMenu = document.getElementById('menu-menu-principal');
   const overlay = header.querySelector('.navbar-v2-overlay');
   const root = document.documentElement;
@@ -16,7 +15,7 @@
 
   function setStaggerIndices() {
     let i = 0;
-    navMenu.querySelectorAll(':scope > li:not(.nav-close)').forEach(function (li) {
+    navMenu.querySelectorAll(':scope > li').forEach(function (li) {
       li.style.setProperty('--nav-i', String(i++));
     });
   }
@@ -68,7 +67,6 @@
   }
 
   btnToggle?.addEventListener('click', toggleMenu);
-  btnClose?.addEventListener('click', closeMenu);
   overlay?.addEventListener('click', closeMenu);
 
   document.addEventListener('keydown', function (e) {

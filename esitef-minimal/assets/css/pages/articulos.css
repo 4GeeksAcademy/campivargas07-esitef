@@ -1,0 +1,115 @@
+/* Artículos — listado */
+html.articulos-screen {
+  overflow-x: clip;
+}
+
+body.articulos-screen {
+  overflow-x: clip;
+  max-width: 100%;
+}
+
+body.articulos-screen #page.site {
+  overflow-x: clip;
+  max-width: 100%;
+}
+
+.articulos-section {
+  padding: clamp(40px, 6vw, 60px) clamp(16px, 4vw, 32px) clamp(60px, 8vw, 100px);
+  background: #fff;
+  min-height: calc(100vh - 400px);
+}
+
+.articulos-inner {
+  width: 100%;
+  max-width: min(1200px, 100%);
+  margin: 0 auto;
+  min-width: 0;
+}
+
+.articulos-titulo {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-size: clamp(32px, 4.5vw, 48px);
+  font-weight: 300;
+  color: #000;
+  text-align: center;
+  margin-bottom: clamp(32px, 5vw, 56px);
+}
+
+.articulos-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: clamp(24px, 3vw, 40px);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.articulo-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  flex: 0 1 220px;
+  width: min(100%, 260px);
+  max-width: 260px;
+  background: #fff;
+  border-radius: 24px;
+  padding: 10px;
+}
+
+.articulo-image {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #f8f8f8;
+}
+
+.articulo-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.articulo-title {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(14px, 1.6vw, 15px);
+  font-weight: 600;
+  line-height: 1.35;
+  color: #111;
+  flex: 1;
+  width: 100%;
+}
+
+.articulo-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 140px;
+  padding: 12px 28px;
+  border-radius: 50px;
+  background: #e3203a;
+  color: #fff;
+  font-family: "Inconsolata", monospace;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  transition: background 0.25s, transform 0.15s;
+  margin-top: auto;
+}
+
+.articulo-btn:hover {
+  background: #b3192e;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 520px) {
+  .articulo-card {
+    flex-basis: min(100%, 320px);
+    max-width: 320px;
+  }
+}
